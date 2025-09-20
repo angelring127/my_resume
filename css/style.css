@@ -18,11 +18,11 @@
 
 body {
   font-family: "Source Serif Pro", "Times New Roman", "Times", serif;
-  line-height: 1.4;
+  line-height: 1.3;
   color: var(--text-color);
   background-color: var(--light-bg);
-  padding: 15px;
-  font-size: 10pt;
+  padding: 10px;
+  font-size: 9pt;
 }
 
 .resume-container {
@@ -32,7 +32,7 @@ body {
   background: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   position: relative;
-  padding: 1.2cm 1.5cm;
+  padding: 0.8cm 1.2cm;
   page-break-after: avoid;
   overflow: hidden;
 }
@@ -43,39 +43,39 @@ body {
 
 .header {
   text-align: center;
-  margin-bottom: 18px;
+  margin-bottom: 12px;
   border-bottom: 1px solid var(--accent-color);
-  padding-bottom: 12px;
+  padding-bottom: 8px;
 }
 
 .header h1 {
   font-family: "Crimson Text", "Times New Roman", serif;
-  font-size: 20pt;
-  margin-bottom: 4px;
+  font-size: 18pt;
+  margin-bottom: 2px;
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
 
 .header .title {
-  font-size: 12pt;
-  margin-bottom: 8px;
+  font-size: 11pt;
+  margin-bottom: 6px;
   color: var(--formal-gray);
   font-weight: 400;
   font-style: italic;
 }
 
 .section {
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .section h2 {
   font-family: "Crimson Text", "Times New Roman", serif;
   color: var(--accent-color);
-  font-size: 14pt;
-  margin-bottom: 8px;
+  font-size: 12pt;
+  margin-bottom: 6px;
   border-bottom: 1px solid var(--accent-color);
-  padding-bottom: 2px;
+  padding-bottom: 1px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -85,7 +85,7 @@ body {
 
 .experience-item,
 .education-item {
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   page-break-inside: avoid;
 }
 
@@ -93,7 +93,7 @@ body {
 .education-item h3 {
   font-family: "Crimson Text", serif;
   color: var(--accent-color);
-  font-size: 11pt;
+  font-size: 10pt;
   margin-bottom: 1px;
   font-weight: 600;
 }
@@ -101,59 +101,59 @@ body {
 .position {
   font-weight: 400;
   color: var(--secondary-color);
-  font-size: 10pt;
+  font-size: 9pt;
   margin-bottom: 1px;
   font-style: italic;
 }
 
 .period {
   color: var(--formal-gray);
-  font-size: 9pt;
-  margin-bottom: 4px;
+  font-size: 8pt;
+  margin-bottom: 3px;
   font-weight: 400;
 }
 
 .experience-item p,
 .experience-item ul {
-  font-size: 10pt;
-  margin-bottom: 3px;
+  font-size: 9pt;
+  margin-bottom: 2px;
 }
 
 .experience-item ul {
-  padding-left: 15px;
-  margin-top: 2px;
+  padding-left: 12px;
+  margin-top: 1px;
 }
 
 .experience-item li {
-  margin-bottom: 2px;
-  line-height: 1.3;
+  margin-bottom: 1px;
+  line-height: 1.2;
   text-align: justify;
 }
 
 .education-item p {
-  font-size: 10pt;
-  margin-bottom: 2px;
-  line-height: 1.3;
+  font-size: 9pt;
+  margin-bottom: 1px;
+  line-height: 1.2;
   color: var(--secondary-color);
 }
 
 .education-note {
-  font-size: 8pt;
+  font-size: 7pt;
   font-style: italic;
   color: var(--formal-gray);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .contact-info {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 3px;
 }
 
 .contact-info p {
   margin: 0;
-  font-size: 10pt;
+  font-size: 9pt;
   color: var(--secondary-color);
   font-weight: 400;
 }
@@ -163,57 +163,57 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 8px;
-  margin-top: 4px;
-  line-height: 1.3;
+  gap: 6px;
+  margin-top: 3px;
+  line-height: 1.2;
 }
 
 .skills-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 8px;
-  margin-bottom: 8px;
+  gap: 6px;
+  margin-bottom: 6px;
 }
 
 .skill-category {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
+  gap: 8px;
 }
 
 .skill-category h4 {
   font-family: "Crimson Text", serif;
-  font-size: 10pt;
+  font-size: 9pt;
   font-weight: 600;
   color: var(--accent-color);
-  min-width: 85px;
+  min-width: 75px;
   margin: 0;
   flex-shrink: 0;
 }
 
 .skills-items {
-  font-size: 10pt;
-  line-height: 1.3;
+  font-size: 9pt;
+  line-height: 1.2;
   color: var(--text-color);
   font-weight: 400;
 }
 
 .link-item {
-  font-size: 9pt;
+  font-size: 8pt;
   color: var(--text-color);
   font-weight: 400;
 }
 
 .link-separator {
-  font-size: 9pt;
+  font-size: 8pt;
   color: var(--formal-gray);
   font-weight: 400;
 }
 
 /* Professional Summary 스타일 추가 */
 #summary p {
-  font-size: 10pt;
-  line-height: 1.4;
+  font-size: 9pt;
+  line-height: 1.3;
   text-align: justify;
   color: var(--text-color);
   margin-bottom: 0;
@@ -225,8 +225,8 @@ body {
 }
 
 .languages-info p {
-  font-size: 10pt;
-  line-height: 1.3;
+  font-size: 9pt;
+  line-height: 1.2;
   color: var(--text-color);
   margin: 0;
   font-weight: 400;
@@ -252,14 +252,14 @@ body {
 @media print {
   @page {
     size: A4;
-    margin: 1.5cm 1cm;
+    margin: 1cm 0.8cm;
   }
 
   body {
     padding: 0;
     background: white;
-    font-size: 9pt;
-    line-height: 1.3;
+    font-size: 8pt;
+    line-height: 1.2;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
@@ -281,27 +281,28 @@ body {
   }
 
   .header {
-    margin-bottom: 12px !important;
+    margin-bottom: 8px !important;
+    padding-bottom: 6px !important;
   }
 
   .header h1 {
-    font-size: 18pt !important;
-    margin-bottom: 2px !important;
+    font-size: 16pt !important;
+    margin-bottom: 1px !important;
   }
 
   .header .title {
-    font-size: 11pt !important;
-    margin-bottom: 6px !important;
+    font-size: 10pt !important;
+    margin-bottom: 4px !important;
   }
 
   .section {
-    margin-bottom: 10px !important;
+    margin-bottom: 8px !important;
   }
 
   .section h2 {
     color: var(--accent-color) !important;
-    font-size: 12pt !important;
-    margin-bottom: 6px !important;
+    font-size: 11pt !important;
+    margin-bottom: 4px !important;
     page-break-after: avoid;
   }
 
@@ -330,17 +331,22 @@ body {
 
   .experience-item,
   .education-item {
-    margin-bottom: 8px !important;
+    margin-bottom: 6px !important;
   }
 
   .experience-item h3,
   .education-item h3 {
-    font-size: 10pt !important;
+    font-size: 9pt !important;
+    margin-bottom: 0px !important;
   }
 
   .experience-item li {
-    margin-bottom: 1px !important;
-    line-height: 1.2 !important;
+    margin-bottom: 0px !important;
+    line-height: 1.1 !important;
+  }
+
+  .experience-item ul {
+    margin-top: 0px !important;
   }
 
   .contact-info {

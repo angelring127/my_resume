@@ -1,0 +1,12 @@
+
+
+portfolio-website/
+├── index.html
+├── css/
+│   ├── style.css
+│   └── animations.css
+├── js/
+│   └── main.js
+├── assets/
+│   └── images/
+└── README.md 

@@ -91,3 +91,41 @@
   transform: scaleX(1);
   transform-origin: bottom left;
 }
+
+/* 포트폴리오 애니메이션 */
+.portfolio-fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.portfolio-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+.portfolio-section {
+  transition: opacity 0.5s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    transition: all 0.3s ease-in-out;
+  }
+}

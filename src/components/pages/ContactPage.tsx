@@ -10,6 +10,7 @@ import {
   Linkedin,
   Globe,
   Star,
+  Code,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -91,7 +92,7 @@ export default function ContactPage() {
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-text mb-4">Get In Touch</h1>
             <p className="text-xl text-text-light">
-              Let's discuss your next project or collaboration opportunity
+              Let&apos;s discuss your next project or collaboration opportunity
             </p>
           </div>
 

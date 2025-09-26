@@ -7,9 +7,10 @@ export type Locale = (typeof locales)[number];
 
 export default getRequestConfig(async ({ locale }) => {
   // 지원하지 않는 언어인 경우 404 페이지로 리다이렉트
-  if (!locales.includes(locale as any)) notFound();
+  if (!locale || !locales.includes(locale as Locale)) notFound();
 
   return {
+    locale,
     messages: (await import(`../../messages/${locale}.json`)).default,
   };
 });

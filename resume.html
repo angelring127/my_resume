@@ -18,8 +18,14 @@
   <body class="dashboard-body">
     <!-- Header -->
     <header class="dashboard-header">
-      <div class="header-brand">
-        <h1>Resume Dashboard</h1>
+      <div class="header-left">
+        <button class="sidebar-toggle">
+          <span class="hamburger"></span>
+        </button>
+        <div class="header-brand">
+          <h1 data-lang="main.title">SANG HO YOUN</h1>
+          <span data-lang="main.subtitle">Full Stack Developer</span>
+        </div>
       </div>
 
       <div class="header-tabs">
@@ -135,9 +141,7 @@
             <button class="action-btn secondary" onclick="window.print()">
               <span data-lang="nav.export">Export PDF</span>
             </button>
-            <a href="mailto:angelring127@gmail.com" class="action-btn primary">
-              <span data-lang="nav.contact">Contact</span>
-            </a>
+            <!-- Contact 버튼은 플로팅 버튼으로 이동 -->
           </div>
         </div>
 
@@ -146,37 +150,10 @@
           <header class="header">
             <h1 data-lang="resume.name">SAM (SANG HO YOUN)</h1>
             <p class="title" data-lang="resume.title">Full Stack Engineer</p>
-            <div class="contact-info">
-              <p>
-                <span data-lang="resume.location"
-                  >Burnaby, BC, Canada V5A 0A3</span
-                >
-                • <span data-lang="resume.phone">+1-604-773-0945</span> •
-                <span data-lang="resume.email">angelring127@gmail.com</span>
-              </p>
-              <div class="social-links">
-                <span class="link-item" data-lang="resume.github"
-                  >GitHub Profile (https://github.com/angelring127)</span
-                >
-                <span class="link-separator">•</span>
-                <span class="link-item" data-lang="resume.linkedin"
-                  >LinkedIn Profile (https://www.linkedin.com/in/naru1227)</span
-                >
-                <span class="link-separator">•</span>
-                <span class="link-item" data-lang="resume.blog"
-                  >Technical Blog (https://angelring127.github.io/)</span
-                >
-                <span class="link-separator">•</span>
-                <span class="link-item" data-lang="resume.portfolio"
-                  >Portfolio
-                  (https://my-resume-three-psi.vercel.app/portfolio.html)</span
-                >
-              </div>
-            </div>
           </header>
 
           <div class="main-content">
-            <section class="section">
+            <section id="technicalSkills" class="section">
               <h2 data-lang="resume.sections.technicalSkills">
                 Technical Skills
               </h2>
@@ -331,7 +308,7 @@
               </div>
             </section>
 
-            <section class="section">
+            <section id="languages" class="section">
               <h2 data-lang="resume.sections.languages">Languages</h2>
               <div class="languages-info">
                 <p data-lang="resume.languages">
@@ -345,13 +322,372 @@
       </div>
     </main>
 
+    <!-- Floating Contact Button -->
+    <button class="floating-contact-btn" id="contactBtn">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+          fill="white"
+        />
+      </svg>
+      <span data-lang="nav.contact">Contact</span>
+    </button>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Contact Information</h2>
+          <span class="close" id="contactClose">&times;</span>
+        </div>
+        <div class="modal-body">
+          <div class="contact-info-modal">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                    fill="#00bcd4"
+                  />
+                </svg>
+              </div>
+              <div class="contact-details">
+                <strong>Location</strong>
+                <span>Burnaby, BC, Canada V5A 0A3</span>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                    fill="#00bcd4"
+                  />
+                </svg>
+              </div>
+              <div class="contact-details">
+                <strong>Phone</strong>
+                <span>+1-604-773-0945</span>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                    fill="#00bcd4"
+                  />
+                </svg>
+              </div>
+              <div class="contact-details">
+                <strong>Email</strong>
+                <a href="mailto:angelring127@gmail.com"
+                  >angelring127@gmail.com</a
+                >
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                    fill="#333"
+                  />
+                </svg>
+              </div>
+              <div class="contact-details">
+                <strong>GitHub</strong>
+                <a href="https://github.com/angelring127" target="_blank"
+                  >github.com/angelring127</a
+                >
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                    fill="#0077B5"
+                  />
+                </svg>
+              </div>
+              <div class="contact-details">
+                <strong>LinkedIn</strong>
+                <a href="https://www.linkedin.com/in/naru1227" target="_blank"
+                  >linkedin.com/in/naru1227</a
+                >
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                    fill="#00bcd4"
+                  />
+                </svg>
+              </div>
+              <div class="contact-details">
+                <strong>Blog</strong>
+                <a href="https://angelring127.github.io/" target="_blank"
+                  >angelring127.github.io</a
+                >
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                    fill="#00bcd4"
+                  />
+                </svg>
+              </div>
+              <div class="contact-details">
+                <strong>Portfolio</strong>
+                <a
+                  href="https://my-resume-three-psi.vercel.app/portfolio.html"
+                  target="_blank"
+                  >Portfolio Website</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technical Stack Modal -->
+    <div id="techModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Technical Stack Details</h2>
+          <span class="close" id="techClose">&times;</span>
+        </div>
+        <div class="modal-body">
+          <div class="tech-details">
+            <div class="tech-category-modal">
+              <h3>Frontend</h3>
+              <div class="tech-items">
+                <div class="tech-item">
+                  <strong>React.js</strong>
+                  <p>
+                    JavaScript library for building user interfaces. Used for
+                    component-based development.
+                  </p>
+                  <ul class="project-usage">
+                    <li>Transportation Management System</li>
+                    <li>Warehouse Management System</li>
+                    <li>Multiple e-commerce platforms</li>
+                  </ul>
+                </div>
+                <div class="tech-item">
+                  <strong>Next.js</strong>
+                  <p>
+                    React framework for production with server-side rendering
+                    capabilities.
+                  </p>
+                  <ul class="project-usage">
+                    <li>Transportation Management System</li>
+                    <li>Business Support System</li>
+                    <li>High-traffic e-commerce platforms</li>
+                  </ul>
+                </div>
+                <div class="tech-item">
+                  <strong>TypeScript</strong>
+                  <p>
+                    Typed superset of JavaScript for better development
+                    experience and code reliability.
+                  </p>
+                  <ul class="project-usage">
+                    <li>Enterprise web applications</li>
+                    <li>Large-scale e-commerce systems</li>
+                  </ul>
+                </div>
+                <div class="tech-item">
+                  <strong>Flutter</strong>
+                  <p>
+                    Cross-platform mobile development framework for iOS and
+                    Android.
+                  </p>
+                  <ul class="project-usage">
+                    <li>School Official Mobile App</li>
+                    <li>Mobile e-commerce applications</li>
+                    <li>3+ mobile apps with 50,000+ downloads</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="tech-category-modal">
+              <h3>Backend</h3>
+              <div class="tech-items">
+                <div class="tech-item">
+                  <strong>PHP</strong>
+                  <p>Server-side scripting language for web development.</p>
+                  <ul class="project-usage">
+                    <li>Multi-vendor e-commerce platforms</li>
+                    <li>Warehouse Management System</li>
+                  </ul>
+                </div>
+                <div class="tech-item">
+                  <strong>Laravel</strong>
+                  <p>PHP framework for elegant web application development.</p>
+                  <ul class="project-usage">
+                    <li>Transportation Management System</li>
+                    <li>Business Support System</li>
+                    <li>High-traffic e-commerce platforms</li>
+                  </ul>
+                </div>
+                <div class="tech-item">
+                  <strong>Python</strong>
+                  <p>
+                    Versatile programming language for various applications.
+                  </p>
+                  <ul class="project-usage">
+                    <li>Cinemee Movie Information App backend</li>
+                    <li>Sonar Data Receiver system</li>
+                    <li>Data analysis and processing</li>
+                  </ul>
+                </div>
+                <div class="tech-item">
+                  <strong>Django</strong>
+                  <p>High-level Python web framework for rapid development.</p>
+                  <ul class="project-usage">
+                    <li>Cinemee Movie Information App</li>
+                    <li>REST API development</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="tech-category-modal">
+              <h3>DevOps & Cloud</h3>
+              <div class="tech-items">
+                <div class="tech-item">
+                  <strong>AWS Cloud Services</strong>
+                  <p>
+                    Comprehensive cloud computing platform for scalable
+                    applications.
+                  </p>
+                  <ul class="project-usage">
+                    <li>Production deployment and scaling</li>
+                    <li>Database management and optimization</li>
+                    <li>Microservices architecture</li>
+                  </ul>
+                </div>
+                <div class="tech-item">
+                  <strong>Docker</strong>
+                  <p>Containerization platform for consistent deployment.</p>
+                  <ul class="project-usage">
+                    <li>CI/CD pipeline implementation</li>
+                    <li>Production deployment automation</li>
+                    <li>Development environment standardization</li>
+                  </ul>
+                </div>
+                <div class="tech-item">
+                  <strong>CI/CD Pipeline</strong>
+                  <p>
+                    Automated continuous integration and deployment processes.
+                  </p>
+                  <ul class="project-usage">
+                    <li>60% reduction in deployment time</li>
+                    <li>Zero production downtime</li>
+                    <li>Automated testing and deployment</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/utils.js"></script>
     <script src="js/languages.js"></script>
     <script src="js/main.js"></script>
     <script>
       // 多言語対応初期化 / 다국어 지원 초기화
       document.addEventListener("DOMContentLoaded", function () {
-        window.languageManager = new LanguageManager();
+        // 언어 매니저 초기화
+        if (typeof LanguageManager !== "undefined") {
+          window.languageManager = new LanguageManager();
+        }
+
+        // 모달 초기화
+        initResumeModals();
       });
+
+      // Resume Modal 기능 초기화
+      function initResumeModals() {
+        // Technical Stack 카드 클릭 이벤트
+        const skillCategories = document.querySelectorAll(".skill-category");
+
+        skillCategories.forEach((category) => {
+          category.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            const modal = document.getElementById("techModal");
+            if (modal) {
+              openModal(modal);
+            }
+          });
+        });
+      }
     </script>
   </body>
 </html>

@@ -1,4 +1,5 @@
 :root {
+  /* 기본 색상 팔레트 */
   --primary-color: #1a1a1a;
   --secondary-color: #333333;
   --accent-color: #000000;
@@ -7,14 +8,52 @@
   --container-width: 21cm; /* A4 width */
   --formal-gray: #666666;
 
-  /* 포트폴리오용 변수 추가 */
+  /* 포트폴리오 색상 시스템 */
   --portfolio-primary: #00bcd4;
+  --portfolio-primary-hover: #00acc1;
+  --portfolio-primary-light: rgba(0, 188, 212, 0.1);
   --portfolio-white: #ffffff;
   --portfolio-dark-gray: #333333;
   --portfolio-bg-dark: #1a1a1a;
   --portfolio-card-dark: #242424;
   --portfolio-text-light: #e0e0e0;
   --portfolio-text-gray: #a0a0a0;
+
+  /* 공통 간격 시스템 */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+
+  /* 공통 폰트 크기 */
+  --font-xs: 0.75rem;
+  --font-sm: 0.875rem;
+  --font-base: 1rem;
+  --font-lg: 1.125rem;
+  --font-xl: 1.25rem;
+  --font-2xl: 1.5rem;
+  --font-3xl: 1.875rem;
+  --font-4xl: 2.25rem;
+
+  /* 공통 보더 반경 */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+
+  /* 공통 그림자 */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+  /* 공통 전환 시간 */
+  --transition-fast: 0.15s;
+  --transition-normal: 0.3s;
+  --transition-slow: 0.5s;
 }
 
 * {
@@ -1405,11 +1444,13 @@ body {
   font-weight: 700;
   margin: 0;
   color: #333;
+  font-family: "Open Sans", sans-serif;
 }
 
 .header-brand span {
   font-size: 0.9rem;
   color: #666;
+  font-family: "Open Sans", sans-serif;
 }
 
 .header-tabs {
@@ -1423,6 +1464,8 @@ body {
   color: #666;
   border-radius: 8px;
   font-weight: 500;
+  font-size: 0.9rem;
+  font-family: "Open Sans", sans-serif;
   transition: all 0.2s;
 }
 
@@ -1619,6 +1662,13 @@ body {
 /* Dashboard Main Content */
 .dashboard-main {
   margin-left: 240px;
+  margin-top: 70px;
+  min-height: calc(100vh - 70px);
+}
+
+/* Resume 페이지 전용 레이아웃 */
+.resume-main {
+  margin-left: 0 !important;
   margin-top: 70px;
   min-height: calc(100vh - 70px);
 }
@@ -1832,9 +1882,458 @@ body {
   font-weight: 600;
 }
 
-/* Resume 전용 스타일 */
-.resume-main {
-  margin-left: 0 !important;
+/* 통합된 모달 스타일 */
+/* 統合されたモーダルスタイル */
+/* 통합된 모달 스타일 */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(0px);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.modal.modal-opening {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  opacity: 1;
+}
+
+.modal.modal-closing {
+  background-color: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(0px);
+  opacity: 0;
+}
+
+.modal-content {
+  background-color: white;
+  margin: 8% auto;
+  padding: 0;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 80vh;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  position: relative;
+  z-index: 10000;
+  transform: scale(0.7) translateY(-50px);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 0;
+}
+
+.modal.modal-opening .modal-content {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+.modal.modal-closing .modal-content {
+  transform: scale(0.8) translateY(20px);
+  opacity: 0;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-header {
+  background: var(--portfolio-primary);
+  color: white;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 12px 12px 0 0;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.close {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+  transition: opacity 0.2s;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.close:hover {
+  opacity: 0.7;
+}
+
+.modal-body {
+  padding: 2rem;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+/* Contact Modal Styles */
+.contact-info-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-info-modal .contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-radius: 12px;
+  border-left: 4px solid var(--portfolio-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.contact-info-modal .contact-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 188, 212, 0.2);
+}
+
+.contact-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(0, 188, 212, 0.1);
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover .contact-icon {
+  background: rgba(0, 188, 212, 0.2);
+  transform: scale(1.1);
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.contact-details strong {
+  color: var(--portfolio-primary);
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.contact-details span,
+.contact-details a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.contact-details a:hover {
+  color: var(--portfolio-primary);
+  text-decoration: underline;
+}
+
+/* GitHub 아이콘 특별 스타일 */
+.contact-item:nth-child(4) .contact-icon {
+  background: rgba(51, 51, 51, 0.1);
+}
+
+.contact-item:nth-child(4):hover .contact-icon {
+  background: rgba(51, 51, 51, 0.2);
+}
+
+/* LinkedIn 아이콘 특별 스타일 */
+.contact-item:nth-child(5) .contact-icon {
+  background: rgba(0, 119, 181, 0.1);
+}
+
+.contact-item:nth-child(5):hover .contact-icon {
+  background: rgba(0, 119, 181, 0.2);
+}
+
+/* Technical Stack Modal Styles */
+.tech-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.tech-category-modal h3 {
+  color: var(--portfolio-primary);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--portfolio-primary);
+}
+
+.tech-items {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.tech-item {
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid var(--portfolio-primary);
+}
+
+.tech-item strong {
+  display: block;
+  color: var(--portfolio-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.tech-item p {
+  margin: 0 0 1rem 0;
+  color: #666;
+  line-height: 1.5;
+}
+
+.project-usage {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.project-usage li {
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+/* Responsive Modal */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    margin: 10% auto;
+    max-height: 85vh;
+  }
+
+  .modal-header {
+    padding: 1rem 1.5rem;
+  }
+
+  .modal-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .modal-body {
+    padding: 1.5rem;
+  }
+
+  .contact-info-modal .contact-item {
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .contact-details strong {
+    font-size: 0.9rem;
+  }
+
+  .contact-details span,
+  .contact-details a {
+    font-size: 0.85rem;
+  }
+
+  .tech-item {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-info-modal .contact-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .contact-details {
+    align-items: center;
+  }
+}
+
+/* Floating Contact Button */
+.floating-contact-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(
+    135deg,
+    var(--portfolio-primary) 0%,
+    #0097a7 100%
+  );
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 16px 24px;
+  box-shadow: 0 4px 20px rgba(0, 188, 212, 0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Open Sans", sans-serif;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  min-width: 140px;
+  justify-content: center;
+}
+
+.floating-contact-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(0, 188, 212, 0.4);
+  background: linear-gradient(135deg, #00acc1 0%, #00838f 100%);
+}
+
+.floating-contact-btn:active {
+  transform: translateY(-1px);
+}
+
+.floating-contact-btn svg {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.floating-contact-btn:hover svg {
+  transform: scale(1.1);
+}
+
+/* 반응형 플로팅 버튼 */
+@media (max-width: 768px) {
+  .floating-contact-btn {
+    bottom: 20px;
+    right: 20px;
+    padding: 14px 20px;
+    font-size: 14px;
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .floating-contact-btn {
+    bottom: 15px;
+    right: 15px;
+    padding: 12px 16px;
+    font-size: 13px;
+    min-width: 100px;
+    gap: 6px;
+  }
+
+  .floating-contact-btn span {
+    display: none;
+  }
+
+  .floating-contact-btn {
+    min-width: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    justify-content: center;
+  }
+}
+
+/* Clickable Tech Stack Cards */
+.skill-category {
+  cursor: pointer !important;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 8px;
+  position: relative;
+}
+
+.skill-category:hover {
+  background-color: #f0f9ff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 188, 212, 0.2);
+}
+
+.skill-category::after {
+  content: "클릭하여 자세히 보기";
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+  z-index: 1000;
+}
+
+.skill-category:hover::after {
+  opacity: 1;
+}
+
+/* Portfolio Tech Stack Cards */
+.tech-stack-card {
+  cursor: pointer !important;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.tech-stack-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 8px 25px rgba(0, 188, 212, 0.3) !important;
+}
+
+.tech-stack-card::after {
+  content: "클릭하여 자세히 보기";
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+  z-index: 1000;
+}
+
+.tech-stack-card:hover::after {
+  opacity: 1;
 }
 
 .resume-main .dashboard-content {

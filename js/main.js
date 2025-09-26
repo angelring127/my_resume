@@ -43,9 +43,28 @@ function initPortfolioFeatures() {
         target.scrollIntoView({
           behavior: "smooth",
         });
+
+        // 사이드바 네비게이션 활성 상태 업데이트
+        updateActiveNavLink(this.getAttribute("href"));
       }
     });
   });
+
+  // 사이드바 토글 기능
+  const sidebarToggle = document.querySelector(".sidebar-toggle");
+  const sidebar = document.querySelector(".dashboard-sidebar");
+
+  if (sidebarToggle && sidebar) {
+    sidebarToggle.addEventListener("click", () => {
+      sidebar.classList.toggle("open");
+    });
+  }
+
+  // 스크롤 시 활성 섹션 감지
+  window.addEventListener("scroll", updateActiveNavOnScroll);
+
+  // 프로필 드롭다운 토글
+  initProfileDropdown();
 
   // Fade-in animation for portfolio
   const portfolioObserverOptions = {
@@ -125,4 +144,65 @@ function initPortfolioFeatures() {
 
     lastScrollTop = scrollTop;
   });
+}
+
+// 사이드바 네비게이션 활성 상태 업데이트 함수
+function updateActiveNavLink(targetId) {
+  // 모든 네비게이션 링크에서 active 클래스 제거
+  document.querySelectorAll(".nav-link").forEach((link) => {
+    link.classList.remove("active");
+  });
+
+  // 현재 타겟에 해당하는 링크에 active 클래스 추가
+  const activeLink = document.querySelector(`.nav-link[href="${targetId}"]`);
+  if (activeLink) {
+    activeLink.classList.add("active");
+  }
+}
+
+// 스크롤 시 활성 섹션 감지 함수
+function updateActiveNavOnScroll() {
+  const sections = document.querySelectorAll("section[id]");
+  const scrollPosition = window.scrollY + 100; // 헤더 높이 고려
+
+  let currentSection = "";
+
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+
+    if (
+      scrollPosition >= sectionTop &&
+      scrollPosition < sectionTop + sectionHeight
+    ) {
+      currentSection = "#" + section.getAttribute("id");
+    }
+  });
+
+  if (currentSection) {
+    updateActiveNavLink(currentSection);
+  }
+}
+
+// 프로필 드롭다운 초기화
+function initProfileDropdown() {
+  const profileToggle = document.getElementById("profileToggle");
+  const profileDropdown = document.getElementById("profileDropdown");
+
+  if (profileToggle && profileDropdown) {
+    profileToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      profileDropdown.classList.toggle("show");
+    });
+
+    // 외부 클릭 시 드롭다운 닫기
+    document.addEventListener("click", (e) => {
+      if (
+        !profileDropdown.contains(e.target) &&
+        !profileToggle.contains(e.target)
+      ) {
+        profileDropdown.classList.remove("show");
+      }
+    });
+  }
 }

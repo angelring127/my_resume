@@ -48,82 +48,213 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/animations.css" />
   </head>
-  <body class="portfolio-body">
-    <nav class="navbar">
-      <div class="nav-content">
-        <button class="menu-toggle">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
+  <body class="dashboard-body">
+    <!-- Top Navigation -->
+    <header class="dashboard-header">
+      <div class="header-left">
+        <button class="sidebar-toggle">
+          <span class="hamburger"></span>
         </button>
-        <ul class="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="#career">Career</a></li>
-          <li><a href="#stack">Tech Stack</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+        <div class="header-brand">
+          <h1 data-lang="main.title">SANG HO YOUN</h1>
+          <span data-lang="main.subtitle">Full Stack Developer</span>
+        </div>
       </div>
-    </nav>
-
-    <header id="home" class="portfolio-section">
-      <div class="portfolio-container portfolio-fade-in">
-        <h1>Youn Sang Ho (Sam)</h1>
-        <h2>Full Stack Developer</h2>
-        <p>I enjoy creating innovative web solutions.</p>
+      
+      <div class="header-tabs">
+        <a href="portfolio.html" class="tab-item active" data-lang="nav.portfolio">Portfolio</a>
+        <a href="resume.html" class="tab-item" data-lang="nav.resume">Resume</a>
       </div>
-      <div class="scroll-indicator">
-        <span class="arrow">↓</span>
+      
+      <div class="header-right">
+        <div class="user-profile">
+          <div class="profile-avatar" id="profileToggle">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="16" r="16" fill="url(#profileGradient)"/>
+              <path d="M16 16c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="white"/>
+              <defs>
+                <linearGradient id="profileGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#00bcd4"/>
+                  <stop offset="100%" style="stop-color:#0097a7"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="profile-dropdown" id="profileDropdown">
+            <div class="profile-info">
+              <div class="profile-header">
+                <div class="profile-avatar-large">
+                  <svg width="48" height="48" viewBox="0 0 32 32" fill="none">
+                    <circle cx="16" cy="16" r="16" fill="url(#profileGradientLarge)"/>
+                    <path d="M16 16c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="white"/>
+                    <defs>
+                      <linearGradient id="profileGradientLarge" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#00bcd4"/>
+                        <stop offset="100%" style="stop-color:#0097a7"/>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+                <div class="profile-details">
+                  <h3 data-lang="main.title">SANG HO YOUN</h3>
+                  <p data-lang="main.subtitle">Full Stack Developer</p>
+                </div>
+              </div>
+              <div class="profile-stats">
+                <div class="stat-item">
+                  <span class="stat-label" data-lang="profile.experience">Experience</span>
+                  <span class="stat-value">6+ Years</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-label" data-lang="profile.location">Location</span>
+                  <span class="stat-value">Vancouver, CA</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-label" data-lang="profile.languages">Languages</span>
+                  <span class="stat-value">KR/JP/EN</span>
+                </div>
+              </div>
+              <div class="profile-actions">
+                <a href="mailto:angelring127@gmail.com" class="profile-action-btn">
+                  <span data-lang="profile.contactMe">Contact Me</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
 
-    <main>
-      <section id="career" class="portfolio-section">
-        <h2>Career Summary</h2>
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-content">
+        <nav class="sidebar-nav">
+          <div class="nav-section">
+            <h3 data-lang="nav.overview">Overview</h3>
+            <ul>
+              <li><a href="#summary" class="nav-link" data-lang="nav.summary">Summary</a></li>
+              <li><a href="#career" class="nav-link active" data-lang="nav.career">Career</a></li>
+              <li><a href="#stack" class="nav-link" data-lang="nav.stack">Tech Stack</a></li>
+            </ul>
+          </div>
+          
+          <div class="nav-section">
+            <h3 data-lang="nav.projects">Projects</h3>
+            <ul>
+              <li><a href="#projects" class="nav-link" data-lang="nav.allProjects">All Projects</a></li>
+              <li><a href="#featured" class="nav-link" data-lang="nav.featured">Featured</a></li>
+              <li><a href="#recent" class="nav-link" data-lang="nav.recent">Recent</a></li>
+            </ul>
+          </div>
+          
+          <div class="nav-section">
+            <h3 data-lang="nav.contact">Contact</h3>
+            <ul>
+              <li><a href="#contact" class="nav-link" data-lang="nav.contactInfo">Contact Info</a></li>
+              <li><a href="index.html" class="nav-link" data-lang="nav.backToHome">Back to Home</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+      <div class="dashboard-content">
+        <!-- Dashboard Header -->
+        <div class="content-header">
+          <div class="page-title">
+            <h1 data-lang="portfolio.name">Youn Sang Ho (Sam)</h1>
+            <p data-lang="portfolio.tagline">I enjoy creating innovative web solutions.</p>
+          </div>
+          <div class="header-actions">
+            <button class="action-btn primary">
+              <span data-lang="nav.contact">Contact</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Dashboard Grid -->
+        <div class="dashboard-grid">
+          <section id="career" class="dashboard-card">
+            <div class="card-header">
+              <h2 data-lang="portfolio.careerTitle">Career Summary</h2>
+              <div class="card-actions">
+                <button class="card-action">⋯</button>
+              </div>
+            </div>
+            <div class="card-content">
         <div class="card-container portfolio-fade-in">
           <div class="portfolio-card">
-            <h3>Full Stack Engineer</h3>
-            <p class="company">
+            <h3 data-lang="portfolio.career.freelance1.position">
+              Full Stack Engineer
+            </h3>
+            <p class="company" data-lang="portfolio.career.freelance1.company">
               Freelance | Vancouver, Canada | 2022 - Present
             </p>
             <ul>
-              <li>
+              <li data-lang="portfolio.career.freelance1.tasks.0">
                 Developing projects using Laravel, Next.js, Docker, and Python
               </li>
-              <li>
+              <li data-lang="portfolio.career.freelance1.tasks.1">
                 Leading project management and problem-solving initiatives
               </li>
-              <li>Collaborating with local clients in Vancouver and Japan</li>
+              <li data-lang="portfolio.career.freelance1.tasks.2">
+                Collaborating with local clients in Vancouver and Japan
+              </li>
             </ul>
           </div>
           <div class="portfolio-card">
-            <h3>Fullstack Developer</h3>
-            <p class="company">Freelance | South Korea | 2020 - 2022</p>
+            <h3 data-lang="portfolio.career.freelance2.position">
+              Fullstack Developer
+            </h3>
+            <p class="company" data-lang="portfolio.career.freelance2.company">
+              Freelance | South Korea | 2020 - 2022
+            </p>
             <ul>
-              <li>Building web applications with React, Laravel, and Python</li>
-              <li>Designing system architecture and full-stack development</li>
-              <li>Analyzing and implementing client requirements</li>
+              <li data-lang="portfolio.career.freelance2.tasks.0">
+                Building web applications with React, Laravel, and Python
+              </li>
+              <li data-lang="portfolio.career.freelance2.tasks.1">
+                Designing system architecture and full-stack development
+              </li>
+              <li data-lang="portfolio.career.freelance2.tasks.2">
+                Analyzing and implementing client requirements
+              </li>
             </ul>
           </div>
           <div class="portfolio-card">
-            <h3>Web Developer</h3>
-            <p class="company">
+            <h3 data-lang="portfolio.career.maebe.position">Web Developer</h3>
+            <p class="company" data-lang="portfolio.career.maebe.company">
               Maebe Co., Ltd | Shizuoka, Japan | 2017 - 2020
             </p>
             <ul>
-              <li>Developing web services using React.js and Laravel</li>
-              <li>Collaborating with Japanese development teams</li>
-              <li>Optimizing web application performance</li>
+              <li data-lang="portfolio.career.maebe.tasks.0">
+                Developing web services using React.js and Laravel
+              </li>
+              <li data-lang="portfolio.career.maebe.tasks.1">
+                Collaborating with Japanese development teams
+              </li>
+              <li data-lang="portfolio.career.maebe.tasks.2">
+                Optimizing web application performance
+              </li>
             </ul>
           </div>
-        </div>
-      </section>
+            </div>
+            </div>
+          </section>
 
-      <section id="stack" class="portfolio-section">
-        <h2>Technical Stack</h2>
-        <div class="card-container portfolio-fade-in">
+          <section id="stack" class="dashboard-card">
+            <div class="card-header">
+              <h2 data-lang="portfolio.stackTitle">Technical Stack</h2>
+              <div class="card-actions">
+                <button class="card-action">⋯</button>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="card-container portfolio-fade-in">
           <div class="portfolio-card">
-            <h3>Frontend</h3>
+            <h3 data-lang="portfolio.stack.frontend">Frontend</h3>
             <p align="center">
               <img
                 src="https://skillicons.dev/icons?i=react,redux,js,nextjs,tailwind,bootstrap,angular&theme=light&perline=4"
@@ -131,7 +262,7 @@
             </p>
           </div>
           <div class="portfolio-card">
-            <h3>Backend</h3>
+            <h3 data-lang="portfolio.stack.backend">Backend</h3>
             <p align="center">
               <img
                 src="https://skillicons.dev/icons?i=php,laravel,nodejs,py,mysql,postgres,graphql&theme=light&perline=4"
@@ -139,22 +270,31 @@
             </p>
           </div>
           <div class="portfolio-card">
-            <h3>DevOps</h3>
+            <h3 data-lang="portfolio.stack.devops">DevOps</h3>
             <p align="center">
               <img
                 src="https://skillicons.dev/icons?i=aws,docker,jenkins&theme=light&perline=4"
               />
             </p>
           </div>
-        </div>
-      </section>
+              </div>
+            </div>
+          </section>
 
-      <section id="projects" class="portfolio-section">
-        <h2>Project Portfolio</h2>
-        <div class="card-container portfolio-fade-in">
+          <section id="projects" class="dashboard-card full-width">
+            <div class="card-header">
+              <h2 data-lang="portfolio.projectsTitle">Project Portfolio</h2>
+              <div class="card-actions">
+                <button class="card-action">⋯</button>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="card-container portfolio-fade-in">
           <div class="portfolio-card">
-            <h3>Transportation Management System</h3>
-            <p>
+            <h3 data-lang="portfolio.projects.transport.title">
+              Transportation Management System
+            </h3>
+            <p data-lang="portfolio.projects.transport.description">
               Led development and project management of a transportation system
               using Next.js and Laravel
             </p>
@@ -164,13 +304,24 @@
               <span>MySQL</span>
             </div>
             <div class="project-links">
-              <a href="https://act.bus-sora.com/" target="_blank">Demo</a>
-              <span class="disabled-link">GitHub</span>
+              <a
+                href="https://act.bus-sora.com/"
+                target="_blank"
+                data-lang="portfolio.projects.transport.demo"
+                >Demo</a
+              >
+              <span
+                class="disabled-link"
+                data-lang="portfolio.projects.transport.github"
+                >GitHub</span
+              >
             </div>
           </div>
           <div class="portfolio-card">
-            <h3>Warehouse Management System</h3>
-            <p>
+            <h3 data-lang="portfolio.projects.warehouse.title">
+              Warehouse Management System
+            </h3>
+            <p data-lang="portfolio.projects.warehouse.description">
               Inventory tracking system for fisheries company with
               mobile-responsive design
             </p>
@@ -180,13 +331,23 @@
               <span>Mobile-responsive</span>
             </div>
             <div class="project-links">
-              <span class="disabled-link">Demo</span>
-              <span class="disabled-link">GitHub</span>
+              <span
+                class="disabled-link"
+                data-lang="portfolio.projects.warehouse.demo"
+                >Demo</span
+              >
+              <span
+                class="disabled-link"
+                data-lang="portfolio.projects.warehouse.github"
+                >GitHub</span
+              >
             </div>
           </div>
           <div class="portfolio-card">
-            <h3>Cinemee - Movie Information App</h3>
-            <p>
+            <h3 data-lang="portfolio.projects.cinemee.title">
+              Cinemee - Movie Information App
+            </h3>
+            <p data-lang="portfolio.projects.cinemee.description">
               Backend development for Japanese movie information mobile
               application
             </p>
@@ -199,9 +360,14 @@
               <a
                 href="https://play.google.com/store/apps/details?id=com.sunny.cinemee.movieticket"
                 target="_blank"
+                data-lang="portfolio.projects.cinemee.playstore"
                 >PlayStore</a
               >
-              <span class="disabled-link">GitHub</span>
+              <span
+                class="disabled-link"
+                data-lang="portfolio.projects.cinemee.github"
+                >GitHub</span
+              >
             </div>
           </div>
           <div class="portfolio-card">
@@ -293,22 +459,31 @@
         </div>
       </section>
 
-      <section id="contact" class="portfolio-section">
-        <h2>Contact</h2>
-        <div class="contact-links portfolio-fade-in">
-          <a href="mailto:angelring127@gmail.com">Email</a>
-          <a href="https://github.com/angelring127" target="_blank">GitHub</a>
-          <a href="https://linkedin.com/in/naru1227" target="_blank"
-            >LinkedIn</a
-          >
+          <section id="contact" class="dashboard-card">
+            <div class="card-header">
+              <h2 data-lang="portfolio.contactTitle">Contact</h2>
+              <div class="card-actions">
+                <button class="card-action">⋯</button>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="contact-links portfolio-fade-in">
+                <a href="mailto:angelring127@gmail.com" data-lang="portfolio.contact.email">Email</a>
+                <a href="https://github.com/angelring127" target="_blank" data-lang="portfolio.contact.github">GitHub</a>
+                <a href="https://linkedin.com/in/naru1227" target="_blank" data-lang="portfolio.contact.linkedin">LinkedIn</a>
+              </div>
+            </div>
+          </section>
         </div>
-      </section>
+      </div>
     </main>
 
+    <script src="js/languages.js"></script>
     <script src="js/main.js"></script>
     <script>
-      // 포트폴리오 페이지용 초기화
+      // 多言語対応初期化 / 다국어 지원 초기화
       document.addEventListener("DOMContentLoaded", function () {
+        window.languageManager = new LanguageManager();
         initPortfolioFeatures();
       });
     </script>

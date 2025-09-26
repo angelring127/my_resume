@@ -15,191 +15,343 @@
       rel="stylesheet"
     />
   </head>
-  <body>
-    <div class="resume-container">
-      <header class="header">
-        <h1>SAM (SANG HO YOUN)</h1>
-        <p class="title">Full Stack Engineer</p>
-        <div class="contact-info">
-          <p>
-            Burnaby, BC, Canada V5A 0A3 • +1-604-773-0945 •
-            angelring127@gmail.com
-          </p>
-          <div class="social-links">
-            <span class="link-item"
-              >GitHub Profile (https://github.com/angelring127)</span
-            >
-            <span class="link-separator">•</span>
-            <span class="link-item"
-              >LinkedIn Profile (https://www.linkedin.com/in/naru1227)</span
-            >
-            <span class="link-separator">•</span>
-            <span class="link-item"
-              >Technical Blog (https://angelring127.github.io/)</span
-            >
-            <span class="link-separator">•</span>
-            <span class="link-item"
-              >Portfolio
-              (https://my-resume-three-psi.vercel.app/portfolio.html)</span
-            >
+  <body class="dashboard-body">
+    <!-- Header -->
+    <header class="dashboard-header">
+      <div class="header-brand">
+        <h1>Resume Dashboard</h1>
+      </div>
+
+      <div class="header-tabs">
+        <a href="portfolio.html" class="tab-item" data-lang="nav.portfolio"
+          >Portfolio</a
+        >
+        <a href="resume.html" class="tab-item active" data-lang="nav.resume"
+          >Resume</a
+        >
+      </div>
+
+      <div class="header-right">
+        <div class="user-profile">
+          <div class="profile-avatar" id="profileToggle">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="16" r="16" fill="url(#profileGradient)" />
+              <path
+                d="M16 16c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                fill="white"
+              />
+              <defs>
+                <linearGradient
+                  id="profileGradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="100%"
+                >
+                  <stop offset="0%" style="stop-color: #00bcd4" />
+                  <stop offset="100%" style="stop-color: #0097a7" />
+                </linearGradient>
+              </defs>
+            </svg>
           </div>
-          <div style="margin-top: 1rem">
-            <a
-              href="index.html"
-              style="color: white; text-decoration: none; font-weight: 600"
-              >← 홈으로 돌아가기</a
-            >
+          <div class="profile-dropdown" id="profileDropdown">
+            <div class="profile-info">
+              <div class="profile-header">
+                <div class="profile-avatar-large">
+                  <svg width="48" height="48" viewBox="0 0 32 32" fill="none">
+                    <circle
+                      cx="16"
+                      cy="16"
+                      r="16"
+                      fill="url(#profileGradientLarge)"
+                    />
+                    <path
+                      d="M16 16c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                      fill="white"
+                    />
+                    <defs>
+                      <linearGradient
+                        id="profileGradientLarge"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%"
+                      >
+                        <stop offset="0%" style="stop-color: #00bcd4" />
+                        <stop offset="100%" style="stop-color: #0097a7" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+                <div class="profile-details">
+                  <h3 data-lang="main.title">SANG HO YOUN</h3>
+                  <p data-lang="main.subtitle">Full Stack Developer</p>
+                </div>
+              </div>
+              <div class="profile-stats">
+                <div class="stat-item">
+                  <span class="stat-label" data-lang="profile.experience"
+                    >Experience</span
+                  >
+                  <span class="stat-value">6+ Years</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-label" data-lang="profile.location"
+                    >Location</span
+                  >
+                  <span class="stat-value">Vancouver, CA</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-label" data-lang="profile.languages"
+                    >Languages</span
+                  >
+                  <span class="stat-value">KR/JP/EN</span>
+                </div>
+              </div>
+              <div class="profile-actions">
+                <a
+                  href="mailto:angelring127@gmail.com"
+                  class="profile-action-btn"
+                >
+                  <span data-lang="profile.contactMe">Contact Me</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-      </header>
-
-      <div class="main-content">
-        <section class="section">
-          <h2>Technical Skills</h2>
-          <div class="skills-grid">
-            <div class="skill-category">
-              <h4>Frontend</h4>
-              <span class="skills-items"
-                >React.js • Next.js • TypeScript • JavaScript • Flutter • Modern
-                UI/UX</span
-              >
-            </div>
-            <div class="skill-category">
-              <h4>Backend</h4>
-              <span class="skills-items"
-                >PHP • Laravel • Python • Django • RESTful API • Database
-                Architecture</span
-              >
-            </div>
-            <div class="skill-category">
-              <h4>DevOps & Cloud</h4>
-              <span class="skills-items"
-                >AWS Cloud Services • Docker • CI/CD Pipeline •
-                Containerization</span
-              >
-            </div>
-          </div>
-        </section>
-
-        <section id="summary" class="section">
-          <h2>Professional Summary</h2>
-          <p>
-            A passionate full-stack engineer with 6+ years of experience
-            building robust and scalable web applications that deliver seamless
-            user experiences. Proven expertise in designing efficient cloud
-            architectures and creating maintainable codebases. Thrives in
-            collaborative environments and remote work settings, bringing
-            innovative ideas to life across diverse technologies and
-            international markets.
-          </p>
-        </section>
-
-        <section id="experience" class="section">
-          <h2>Professional Experience</h2>
-          <div class="experience-item">
-            <h3>Full Stack Engineer & Technical Consultant</h3>
-            <p class="position">
-              Business Solver, Tortoise.Programmer (Remote Contracts)
-            </p>
-            <p class="period">January 2024 - Present | Vancouver, BC</p>
-            <ul>
-              <li>
-                Deliver custom web application modules and components for
-                diverse client projects
-              </li>
-              <li>
-                Collaborate with international development teams on scalable
-                architecture solutions
-              </li>
-              <li>
-                Provide technical consultation on modern full-stack development
-                practices
-              </li>
-            </ul>
-          </div>
-
-          <div class="experience-item">
-            <h3>Full Stack Developer (Remote)</h3>
-            <p class="position">Maebe Inc. - E-commerce Solutions</p>
-            <p class="period">
-              May 2020 - December 2023 | Remote (Japan-based company)
-            </p>
-            <ul>
-              <li>
-                Led high-traffic e-commerce platform development (Next.js,
-                Laravel), increasing user engagement by 40% and supporting
-                10,000+ daily active users
-              </li>
-              <li>
-                Implemented CI/CD pipeline with Docker & AWS, reducing
-                deployment time by 60% and eliminating production downtime
-              </li>
-              <li>
-                Launched 3 Flutter mobile applications with 50,000+ total
-                downloads
-              </li>
-              <li>
-                Built microservices backend architecture, reducing API response
-                time by 50% through database optimization and caching strategies
-              </li>
-              <li>
-                Mentored 5 junior developers, establishing code review processes
-                and improving overall team productivity by 30%
-              </li>
-            </ul>
-          </div>
-
-          <div class="experience-item">
-            <h3>Web Developer</h3>
-            <p class="position">Maebe Inc. - E-commerce Solutions</p>
-            <p class="period">December 2017 - April 2020 | Shizuoka, Japan</p>
-            <ul>
-              <li>
-                Developed multi-vendor e-commerce platform serving 500+
-                merchants
-              </li>
-              <li>
-                Implemented secure payment systems with PCI DSS compliance,
-                processing $2M+ annually
-              </li>
-              <li>
-                Delivered localized solutions for Japanese and international
-                markets, supporting 3 languages and multiple currencies
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <section id="education" class="section">
-          <h2>Education & Military Service</h2>
-          <div class="education-item">
-            <h3>Bachelor of Science in Computer Science</h3>
-            <p>
-              Korea Polytechnic University (2015-2017) - Software Engineering,
-              Cloud Computing
-            </p>
-          </div>
-          <div class="education-item">
-            <h3>Republic of Korea Army</h3>
-            <p>
-              Military Service (2012-2014) - Completed mandatory military
-              service
-            </p>
-          </div>
-        </section>
-
-        <section class="section">
-          <h2>Languages</h2>
-          <div class="languages-info">
-            <p>
-              Korean (Native) • Japanese (Advanced - Business Level) • English
-              (Fluent - 3+ years in Canada)
-            </p>
-          </div>
-        </section>
       </div>
-    </div>
+    </header>
 
+    <!-- Main Content -->
+    <main class="dashboard-main resume-main">
+      <div class="dashboard-content">
+        <!-- Content Header -->
+        <div class="content-header">
+          <div class="page-title">
+            <h1 data-lang="resume.name">SAM (SANG HO YOUN)</h1>
+            <p data-lang="resume.title">Full Stack Engineer</p>
+          </div>
+          <div class="header-actions">
+            <button class="action-btn secondary" onclick="window.print()">
+              <span data-lang="nav.export">Export PDF</span>
+            </button>
+            <a href="mailto:angelring127@gmail.com" class="action-btn primary">
+              <span data-lang="nav.contact">Contact</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Resume Content -->
+        <div class="resume-container print-content">
+          <header class="header">
+            <h1 data-lang="resume.name">SAM (SANG HO YOUN)</h1>
+            <p class="title" data-lang="resume.title">Full Stack Engineer</p>
+            <div class="contact-info">
+              <p>
+                <span data-lang="resume.location"
+                  >Burnaby, BC, Canada V5A 0A3</span
+                >
+                • <span data-lang="resume.phone">+1-604-773-0945</span> •
+                <span data-lang="resume.email">angelring127@gmail.com</span>
+              </p>
+              <div class="social-links">
+                <span class="link-item" data-lang="resume.github"
+                  >GitHub Profile (https://github.com/angelring127)</span
+                >
+                <span class="link-separator">•</span>
+                <span class="link-item" data-lang="resume.linkedin"
+                  >LinkedIn Profile (https://www.linkedin.com/in/naru1227)</span
+                >
+                <span class="link-separator">•</span>
+                <span class="link-item" data-lang="resume.blog"
+                  >Technical Blog (https://angelring127.github.io/)</span
+                >
+                <span class="link-separator">•</span>
+                <span class="link-item" data-lang="resume.portfolio"
+                  >Portfolio
+                  (https://my-resume-three-psi.vercel.app/portfolio.html)</span
+                >
+              </div>
+            </div>
+          </header>
+
+          <div class="main-content">
+            <section class="section">
+              <h2 data-lang="resume.sections.technicalSkills">
+                Technical Skills
+              </h2>
+              <div class="skills-grid">
+                <div class="skill-category">
+                  <h4 data-lang="resume.skills.frontend">Frontend</h4>
+                  <span
+                    class="skills-items"
+                    data-lang="resume.skills.frontendSkills"
+                    >React.js • Next.js • TypeScript • JavaScript • Flutter •
+                    Modern UI/UX</span
+                  >
+                </div>
+                <div class="skill-category">
+                  <h4 data-lang="resume.skills.backend">Backend</h4>
+                  <span
+                    class="skills-items"
+                    data-lang="resume.skills.backendSkills"
+                    >PHP • Laravel • Python • Django • RESTful API • Database
+                    Architecture</span
+                  >
+                </div>
+                <div class="skill-category">
+                  <h4 data-lang="resume.skills.devops">DevOps & Cloud</h4>
+                  <span
+                    class="skills-items"
+                    data-lang="resume.skills.devopsSkills"
+                    >AWS Cloud Services • Docker • CI/CD Pipeline •
+                    Containerization</span
+                  >
+                </div>
+              </div>
+            </section>
+
+            <section id="summary" class="section">
+              <h2 data-lang="resume.sections.professionalSummary">
+                Professional Summary
+              </h2>
+              <p data-lang="resume.summary">
+                A passionate full-stack engineer with 6+ years of experience
+                building robust and scalable web applications that deliver
+                seamless user experiences. Proven expertise in designing
+                efficient cloud architectures and creating maintainable
+                codebases. Thrives in collaborative environments and remote work
+                settings, bringing innovative ideas to life across diverse
+                technologies and international markets.
+              </p>
+            </section>
+
+            <section id="experience" class="section">
+              <h2 data-lang="resume.sections.professionalExperience">
+                Professional Experience
+              </h2>
+              <div class="experience-item">
+                <h3>Full Stack Engineer & Technical Consultant</h3>
+                <p class="position">
+                  Business Solver, Tortoise.Programmer (Remote Contracts)
+                </p>
+                <p class="period">January 2024 - Present | Vancouver, BC</p>
+                <ul>
+                  <li>
+                    Deliver custom web application modules and components for
+                    diverse client projects
+                  </li>
+                  <li>
+                    Collaborate with international development teams on scalable
+                    architecture solutions
+                  </li>
+                  <li>
+                    Provide technical consultation on modern full-stack
+                    development practices
+                  </li>
+                </ul>
+              </div>
+
+              <div class="experience-item">
+                <h3>Full Stack Developer (Remote)</h3>
+                <p class="position">Maebe Inc. - E-commerce Solutions</p>
+                <p class="period">
+                  May 2020 - December 2023 | Remote (Japan-based company)
+                </p>
+                <ul>
+                  <li>
+                    Led high-traffic e-commerce platform development (Next.js,
+                    Laravel), increasing user engagement by 40% and supporting
+                    10,000+ daily active users
+                  </li>
+                  <li>
+                    Implemented CI/CD pipeline with Docker & AWS, reducing
+                    deployment time by 60% and eliminating production downtime
+                  </li>
+                  <li>
+                    Launched 3 Flutter mobile applications with 50,000+ total
+                    downloads
+                  </li>
+                  <li>
+                    Built microservices backend architecture, reducing API
+                    response time by 50% through database optimization and
+                    caching strategies
+                  </li>
+                  <li>
+                    Mentored 5 junior developers, establishing code review
+                    processes and improving overall team productivity by 30%
+                  </li>
+                </ul>
+              </div>
+
+              <div class="experience-item">
+                <h3>Web Developer</h3>
+                <p class="position">Maebe Inc. - E-commerce Solutions</p>
+                <p class="period">
+                  December 2017 - April 2020 | Shizuoka, Japan
+                </p>
+                <ul>
+                  <li>
+                    Developed multi-vendor e-commerce platform serving 500+
+                    merchants
+                  </li>
+                  <li>
+                    Implemented secure payment systems with PCI DSS compliance,
+                    processing $2M+ annually
+                  </li>
+                  <li>
+                    Delivered localized solutions for Japanese and international
+                    markets, supporting 3 languages and multiple currencies
+                  </li>
+                </ul>
+              </div>
+            </section>
+
+            <section id="education" class="section">
+              <h2 data-lang="resume.sections.education">
+                Education & Military Service
+              </h2>
+              <div class="education-item">
+                <h3 data-lang="resume.education.university.title">
+                  Bachelor of Science in Computer Science
+                </h3>
+                <p data-lang="resume.education.university.school">
+                  Korea Polytechnic University (2015-2017) - Software
+                  Engineering, Cloud Computing
+                </p>
+              </div>
+              <div class="education-item">
+                <h3 data-lang="resume.education.military.title">
+                  Republic of Korea Army
+                </h3>
+                <p data-lang="resume.education.military.service">
+                  Military Service (2012-2014) - Completed mandatory military
+                  service
+                </p>
+              </div>
+            </section>
+
+            <section class="section">
+              <h2 data-lang="resume.sections.languages">Languages</h2>
+              <div class="languages-info">
+                <p data-lang="resume.languages">
+                  Korean (Native) • Japanese (Advanced - Business Level) •
+                  English (Fluent - 3+ years in Canada)
+                </p>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/languages.js"></script>
     <script src="js/main.js"></script>
+    <script>
+      // 多言語対応初期化 / 다국어 지원 초기화
+      document.addEventListener("DOMContentLoaded", function () {
+        window.languageManager = new LanguageManager();
+      });
+    </script>
   </body>
 </html>

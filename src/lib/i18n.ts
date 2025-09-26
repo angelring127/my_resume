@@ -6,11 +6,13 @@ export const locales = ["en", "ko", "ja"] as const;
 export type Locale = (typeof locales)[number];
 
 export default getRequestConfig(async ({ locale }) => {
-  // 지원하지 않는 언어인 경우 404 페이지로 리다이렉트
-  if (!locale || !locales.includes(locale as Locale)) notFound();
+  // locale が無い場合は既定の 'en' にフォールバックする
+  const resolvedLocale: Locale = locales.includes(locale as Locale)
+    ? (locale as Locale)
+    : "en";
 
   return {
-    locale,
-    messages: (await import(`../../messages/${locale}.json`)).default,
+    locale: resolvedLocale,
+    messages: (await import(`../../messages/${resolvedLocale}.json`)).default,
   };
 });

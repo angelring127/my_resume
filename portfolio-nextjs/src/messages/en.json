@@ -1,0 +1,125 @@
+{
+  "main": {
+    "title": "SANG HO YOUN",
+    "subtitle": "Full Stack Developer",
+    "description": "Creating innovative web solutions with passion and expertise",
+    "portfolioButton": "Portfolio",
+    "resumeButton": "Resume"
+  },
+  "nav": {
+    "portfolio": "Portfolio",
+    "resume": "Resume",
+    "contact": "Contact",
+    "backToHome": "Back to Home"
+  },
+  "portfolio": {
+    "name": "Youn Sang Ho (Sam)",
+    "tagline": "I enjoy creating innovative web solutions.",
+    "careerTitle": "Career Summary",
+    "stackTitle": "Technical Stack",
+    "projectsTitle": "Project Portfolio",
+    "career": {
+      "freelance1": {
+        "position": "Full Stack Engineer",
+        "company": "Freelance | Vancouver, Canada | 2022 - Present",
+        "tasks": [
+          "Developing projects using Laravel, Next.js, Docker, and Python",
+          "Leading project management and problem-solving initiatives",
+          "Collaborating with local clients in Vancouver and Japan"
+        ]
+      },
+      "freelance2": {
+        "position": "Fullstack Developer",
+        "company": "Freelance | South Korea | 2020 - 2022",
+        "tasks": [
+          "Building web applications with React, Laravel, and Python",
+          "Designing system architecture and full-stack development",
+          "Analyzing and implementing client requirements"
+        ]
+      },
+      "maebe": {
+        "position": "Web Developer",
+        "company": "Maebe Co., Ltd | Shizuoka, Japan | 2017 - 2020",
+        "tasks": [
+          "Developing web services using React.js and Laravel",
+          "Collaborating with Japanese development teams",
+          "Optimizing web application performance"
+        ]
+      }
+    },
+    "stack": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "devops": "DevOps"
+    },
+    "projects": {
+      "transport": {
+        "title": "Transportation Management System",
+        "description": "Led development and project management of a transportation system using Next.js and Laravel",
+        "demo": "Demo",
+        "github": "GitHub"
+      },
+      "warehouse": {
+        "title": "Warehouse Management System",
+        "description": "Inventory tracking system for fisheries company with mobile-responsive design",
+        "demo": "Demo",
+        "github": "GitHub"
+      },
+      "cinemee": {
+        "title": "Cinemee - Movie Information App",
+        "description": "Backend development for Japanese movie information mobile application",
+        "playstore": "PlayStore",
+        "github": "GitHub"
+      }
+    }
+  },
+  "resume": {
+    "name": "SAM (SANG HO YOUN)",
+    "title": "Full Stack Engineer",
+    "sections": {
+      "technicalSkills": "Technical Skills",
+      "professionalSummary": "Professional Summary",
+      "professionalExperience": "Professional Experience",
+      "education": "Education & Military Service",
+      "languages": "Languages"
+    },
+    "skills": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "devops": "DevOps & Cloud",
+      "frontendSkills": "React.js • Next.js • TypeScript • JavaScript • Flutter • Modern UI/UX",
+      "backendSkills": "PHP • Laravel • Python • Django • RESTful API • Database Architecture",
+      "devopsSkills": "AWS Cloud Services • Docker • CI/CD Pipeline • Containerization"
+    },
+    "summary": "A passionate full-stack engineer with 6+ years of experience building robust and scalable web applications that deliver seamless user experiences. Proven expertise in designing efficient cloud architectures and creating maintainable codebases. Thrives in collaborative environments and remote work settings, bringing innovative ideas to life across diverse technologies and international markets.",
+    "education": {
+      "university": {
+        "title": "Bachelor of Science in Computer Science",
+        "school": "Korea Polytechnic University (2015-2017) - Software Engineering, Cloud Computing"
+      },
+      "military": {
+        "title": "Republic of Korea Army",
+        "service": "Military Service (2012-2014) - Completed mandatory military service"
+      }
+    },
+    "languages": "Korean (Native) • Japanese (Advanced - Business Level) • English (Fluent - 3+ years in Canada)"
+  },
+  "profile": {
+    "experience": "Experience",
+    "location": "Location",
+    "languages": "Languages",
+    "contactMe": "Contact Me"
+  },
+  "login": {
+    "title": "Access Portfolio",
+    "subtitle": "Choose your preferred section to explore",
+    "welcome": "Welcome to My Portfolio",
+    "sectionLabel": "Select Section",
+    "portfolioDesc": "Projects & Experience",
+    "resumeDesc": "Professional CV",
+    "footer": "Professional portfolio showcasing full-stack development expertise",
+    "feature1": "6+ Years Experience",
+    "feature2": "Full Stack Development",
+    "feature3": "International Experience"
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "main": {
+    "title": "ユン・サンホ",
+    "subtitle": "フルスタック開発者",
+    "description": "情熱と専門性で革新的なウェブソリューションを創造します",
+    "portfolioButton": "ポートフォリオ",
+    "resumeButton": "履歴書"
+  },
+  "nav": {
+    "portfolio": "ポートフォリオ",
+    "resume": "履歴書",
+    "contact": "お問い合わせ",
+    "backToHome": "ホームに戻る"
+  },
+  "portfolio": {
+    "name": "ユン・サンホ（サム）",
+    "tagline": "革新的なウェブソリューションの創造を楽しんでいます。",
+    "careerTitle": "キャリアサマリー",
+    "stackTitle": "技術スタック",
+    "projectsTitle": "プロジェクトポートフォリオ",
+    "career": {
+      "freelance1": {
+        "position": "フルスタックエンジニア",
+        "company": "フリーランス | バンクーバー、カナダ | 2022 - 現在",
+        "tasks": [
+          "Laravel、Next.js、Docker、Pythonを使用したプロジェクト開発",
+          "プロジェクト管理と問題解決イニシアチブのリード",
+          "バンクーバーと日本の現地クライアントとの協力"
+        ]
+      },
+      "freelance2": {
+        "position": "フルスタック開発者",
+        "company": "フリーランス | 韓国 | 2020 - 2022",
+        "tasks": [
+          "React、Laravel、Pythonを使用したウェブアプリケーション構築",
+          "システムアーキテクチャの設計とフルスタック開発",
+          "クライアント要件の分析と実装"
+        ]
+      },
+      "maebe": {
+        "position": "ウェブ開発者",
+        "company": "株式会社マエベ | 静岡、日本 | 2017 - 2020",
+        "tasks": [
+          "React.jsとLaravelを使用したウェブサービス開発",
+          "日本の開発チームとの協力",
+          "ウェブアプリケーションのパフォーマンス最適化"
+        ]
+      }
+    },
+    "stack": {
+      "frontend": "フロントエンド",
+      "backend": "バックエンド",
+      "devops": "DevOps"
+    },
+    "projects": {
+      "transport": {
+        "title": "交通管理システム",
+        "description": "Next.jsとLaravelを使用した交通システムの開発とプロジェクト管理をリード",
+        "demo": "デモ",
+        "github": "GitHub"
+      },
+      "warehouse": {
+        "title": "倉庫管理システム",
+        "description": "モバイルレスポンシブデザインを備えた水産業会社の在庫追跡システム",
+        "demo": "デモ",
+        "github": "GitHub"
+      },
+      "cinemee": {
+        "title": "シネミー - 映画情報アプリ",
+        "description": "日本の映画情報モバイルアプリケーションのバックエンド開発",
+        "playstore": "PlayStore",
+        "github": "GitHub"
+      }
+    }
+  },
+  "resume": {
+    "name": "ユン・サンホ（サム）",
+    "title": "フルスタックエンジニア",
+    "sections": {
+      "technicalSkills": "技術的スキル",
+      "professionalSummary": "プロフェッショナルサマリー",
+      "professionalExperience": "プロフェッショナル経験",
+      "education": "学歴と軍務",
+      "languages": "言語"
+    },
+    "skills": {
+      "frontend": "フロントエンド",
+      "backend": "バックエンド",
+      "devops": "DevOps & クラウド",
+      "frontendSkills": "React.js • Next.js • TypeScript • JavaScript • Flutter • モダンUI/UX",
+      "backendSkills": "PHP • Laravel • Python • Django • RESTful API • データベースアーキテクチャ",
+      "devopsSkills": "AWSクラウドサービス • Docker • CI/CDパイプライン • コンテナ化"
+    },
+    "summary": "6年以上の経験を持つ情熱的なフルスタックエンジニアで、堅牢でスケーラブルなウェブアプリケーションを構築し、シームレスなユーザー体験を提供します。効率的なクラウドアーキテクチャの設計と保守可能なコードベースの作成において実証された専門性を持っています。協力的な環境とリモートワーク環境で活躍し、多様な技術と国際市場で革新的なアイデアを実現します。",
+    "education": {
+      "university": {
+        "title": "コンピュータサイエンス学士",
+        "school": "韓国ポリテク大学（2015-2017）- ソフトウェア工学、クラウドコンピューティング"
+      },
+      "military": {
+        "title": "大韓民国陸軍",
+        "service": "軍務（2012-2014）- 義務軍務完了"
+      }
+    },
+    "languages": "韓国語（母国語）• 日本語（上級 - ビジネスレベル）• 英語（流暢 - カナダ3年以上在住）"
+  },
+  "profile": {
+    "experience": "経験",
+    "location": "所在地",
+    "languages": "言語",
+    "contactMe": "お問い合わせ"
+  },
+  "login": {
+    "title": "ポートフォリオアクセス",
+    "subtitle": "探索したいセクションを選択してください",
+    "welcome": "私のポートフォリオへようこそ",
+    "sectionLabel": "セクション選択",
+    "portfolioDesc": "プロジェクトと経験",
+    "resumeDesc": "プロフェッショナル履歴書",
+    "footer": "フルスタック開発専門性を展示するプロフェッショナルポートフォリオ",
+    "feature1": "6年以上の経験",
+    "feature2": "フルスタック開発",
+    "feature3": "国際経験"
+  }
+}

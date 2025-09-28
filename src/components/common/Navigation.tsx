@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
 
 type Language = "ko" | "en" | "ja";
 
 interface NavigationProps {
   currentPage: "home" | "portfolio" | "resume";
+  currentLanguage?: Language;
+  onLanguageChange?: (language: Language) => void;
 }
 
 const translations = {
@@ -33,13 +34,17 @@ const translations = {
   },
 };
 
-export default function Navigation({ currentPage }: NavigationProps) {
-  const [currentLanguage, setCurrentLanguage] = useState<Language>("en");
-
+export default function Navigation({
+  currentPage,
+  currentLanguage = "ko",
+  onLanguageChange,
+}: NavigationProps) {
   const t = translations[currentLanguage];
 
   const handleLanguageChange = (language: Language) => {
-    setCurrentLanguage(language);
+    if (onLanguageChange) {
+      onLanguageChange(language);
+    }
   };
 
   const handlePrint = () => {

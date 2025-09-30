@@ -119,15 +119,33 @@ export default function ResumePage() {
 
   const t = translations[currentLanguage];
 
+  // 초기 언어 로드
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const savedLanguage = localStorage.getItem("preferredLanguage") as Language | null;
+      if (savedLanguage && ["ko", "en", "ja"].includes(savedLanguage)) {
+        setCurrentLanguage(savedLanguage);
+      }
+    }
+  }, []);
+
+  // 언어 변경 시 저장
+  const handleLanguageChange = (language: Language) => {
+    setCurrentLanguage(language);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("preferredLanguage", language);
+    }
+  };
+
   // 모바일 화면 감지
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     checkMobile();
     window.addEventListener("resize", checkMobile);
-    
+
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
@@ -149,7 +167,7 @@ export default function ResumePage() {
         <Navigation
           currentPage="resume"
           currentLanguage={currentLanguage}
-          onLanguageChange={setCurrentLanguage}
+          onLanguageChange={handleLanguageChange}
         />
 
         {/* Main Content */}

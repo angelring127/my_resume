@@ -70,7 +70,21 @@ export default function LandingPage() {
 
   const handleLanguageChange = (language: Language) => {
     setCurrentLanguage(language);
+    // 로컬스토리지에 언어 설정 저장
+    if (typeof window !== "undefined") {
+      localStorage.setItem("preferredLanguage", language);
+    }
   };
+
+  // 초기 언어 로드
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const savedLanguage = localStorage.getItem("preferredLanguage") as Language | null;
+      if (savedLanguage && ["ko", "en", "ja"].includes(savedLanguage)) {
+        setCurrentLanguage(savedLanguage);
+      }
+    }
+  }, []);
 
   // 모바일 화면 감지
   useEffect(() => {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Navigation from "../common/Navigation";
 import ContactFab from "../common/ContactFab";
@@ -495,8 +495,21 @@ export default function PortfolioPage() {
   const [currentLanguage, setCurrentLanguage] = useState<Language>("ko");
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   const t = translations[currentLanguage];
+
+  // 모바일 화면 감지
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const projects: Project[] = [
     {
@@ -882,8 +895,8 @@ export default function PortfolioPage() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "300px 1fr",
-              gap: "2rem",
+              gridTemplateColumns: isMobile ? "1fr" : "300px 1fr",
+              gap: isMobile ? "1.5rem" : "2rem",
             }}
           >
             {/* Left Sidebar */}
@@ -1242,14 +1255,15 @@ export default function PortfolioPage() {
                         style={{
                           display: "flex",
                           gap: "1.5rem",
+                          flexDirection: isMobile ? "column" : "row",
                           flexWrap: "wrap",
                         }}
                       >
-                        <div style={{ width: "200px", flexShrink: 0 }}>
+                        <div style={{ width: isMobile ? "100%" : "200px", flexShrink: 0 }}>
                           <div
                             style={{
                               width: "100%",
-                              height: "120px",
+                              height: isMobile ? "180px" : "120px",
                               background:
                                 "linear-gradient(135deg, #f1f3f4, #e8eaed)",
                               borderRadius: "8px",

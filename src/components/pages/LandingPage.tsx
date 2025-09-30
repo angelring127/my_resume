@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // 언어별 텍스트 데이터
 const translations = {
@@ -64,12 +64,25 @@ type Language = "ko" | "en" | "ja";
 
 export default function LandingPage() {
   const [currentLanguage, setCurrentLanguage] = useState<Language>("en");
+  const [isMobile, setIsMobile] = useState(false);
 
   const t = translations[currentLanguage];
 
   const handleLanguageChange = (language: Language) => {
     setCurrentLanguage(language);
   };
+
+  // 모바일 화면 감지
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
   return (
     <div
       style={{
@@ -94,8 +107,8 @@ export default function LandingPage() {
       <div
         style={{
           position: "fixed",
-          top: "2rem",
-          right: "2rem",
+          top: isMobile ? "1rem" : "2rem",
+          right: isMobile ? "1rem" : "2rem",
           zIndex: 1000,
           display: "flex",
           gap: "0.5rem",
@@ -224,14 +237,14 @@ export default function LandingPage() {
         style={{
           width: "100%",
           maxWidth: "1200px",
-          minHeight: "600px",
+          minHeight: isMobile ? "auto" : "600px",
           background: "white",
-          borderRadius: "20px",
+          borderRadius: isMobile ? "12px" : "20px",
           boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)",
           display: "grid",
-          gridTemplateColumns: "1fr 1fr",
+          gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
           overflow: "hidden",
-          margin: "2rem",
+          margin: isMobile ? "1rem" : "2rem",
         }}
       >
         {/* Left Side - Dark */}
@@ -239,7 +252,7 @@ export default function LandingPage() {
           style={{
             background: "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)",
             color: "white",
-            padding: "3rem",
+            padding: isMobile ? "2rem 1.5rem" : "3rem",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -296,7 +309,7 @@ export default function LandingPage() {
             </div>
             <h1
               style={{
-                fontSize: "2.5rem",
+                fontSize: isMobile ? "1.75rem" : "2.5rem",
                 fontWeight: 700,
                 margin: "0 0 0.5rem 0",
                 background: "linear-gradient(135deg, #00bcd4, #ffffff)",
@@ -309,7 +322,7 @@ export default function LandingPage() {
             </h1>
             <p
               style={{
-                fontSize: "1.2rem",
+                fontSize: isMobile ? "1rem" : "1.2rem",
                 margin: 0,
                 opacity: 0.9,
                 color: "#e0e0e0",
@@ -427,7 +440,7 @@ export default function LandingPage() {
         <div
           style={{
             background: "white",
-            padding: "3rem",
+            padding: isMobile ? "2rem 1.5rem" : "3rem",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",

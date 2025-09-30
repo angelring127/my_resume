@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navigation from "../common/Navigation";
 import ContactFab from "../common/ContactFab";
 
@@ -115,8 +115,21 @@ type Language = "ko" | "en" | "ja";
 export default function ResumePage() {
   const [currentLanguage, setCurrentLanguage] = useState<Language>("en");
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const t = translations[currentLanguage];
+
+  // 모바일 화면 감지
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   return (
     <>
@@ -145,7 +158,7 @@ export default function ResumePage() {
           style={{
             marginTop: "70px",
             minHeight: "calc(100vh - 70px)",
-            padding: "2rem",
+            padding: isMobile ? "1rem" : "2rem",
             display: "flex",
             justifyContent: "center",
             alignItems: "flex-start",
@@ -155,12 +168,12 @@ export default function ResumePage() {
           <div
             id="printDiv"
             style={{
-              width: "210mm", // A4 width
-              minHeight: "297mm", // A4 height
+              width: isMobile ? "100%" : "210mm", // A4 width
+              minHeight: isMobile ? "auto" : "297mm", // A4 height
               maxWidth: "100%",
               background: "white",
-              boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)",
-              borderRadius: "8px",
+              boxShadow: isMobile ? "0 4px 12px rgba(0, 0, 0, 0.15)" : "0 10px 30px rgba(0, 0, 0, 0.3)",
+              borderRadius: isMobile ? "0" : "8px",
               overflow: "hidden",
               position: "relative",
               fontFamily:
@@ -168,7 +181,7 @@ export default function ResumePage() {
               color: "#1a1a1a",
             }}
           >
-            <div style={{ padding: "0.8cm 1.2cm" }}>
+            <div style={{ padding: isMobile ? "1rem" : "0.8cm 1.2cm" }}>
               {/* Resume Header */}
               <header
                 className="resume-header"
@@ -602,9 +615,9 @@ export default function ResumePage() {
               <div
                 style={{
                   display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
-                  gap: "25px",
-                  marginBottom: "25px",
+                  gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+                  gap: isMobile ? "15px" : "25px",
+                  marginBottom: isMobile ? "15px" : "25px",
                 }}
               >
                 <section className="resume-section">

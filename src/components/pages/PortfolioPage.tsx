@@ -913,9 +913,21 @@ export default function PortfolioPage() {
                   alignItems: "center",
                   justifyContent: "center",
                   backdropFilter: "blur(10px)",
+                  overflow: "hidden",
+                  border: "3px solid rgba(0, 188, 212, 0.3)",
                 }}
               >
-                <span style={{ fontSize: "3rem" }}>👨‍💻</span>
+                <Image
+                  src="/Profiles/my_picture.jpg"
+                  alt="Youn Sang Ho"
+                  width={120}
+                  height={120}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                  }}
+                />
               </div>
             </div>
           </div>

@@ -804,7 +804,14 @@ export default function PortfolioPage() {
           overflowX: "hidden",
         }}
       >
-        <div style={{ padding: isMobile ? "0.5rem" : "2rem", maxWidth: "1400px", margin: "0 auto", width: "100%" }}>
+        <div
+          style={{
+            padding: isMobile ? "0.5rem" : "2rem",
+            maxWidth: "1400px",
+            margin: "0 auto",
+            width: "100%",
+          }}
+        >
           {/* Hero Section */}
           <div
             style={{

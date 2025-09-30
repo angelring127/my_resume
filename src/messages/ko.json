@@ -21,7 +21,7 @@
     "career": {
       "freelance1": {
         "position": "풀스택 엔지니어",
-        "company": "프리랜서 | 밴쿠버, 캐나다 | 2022 - 현재",
+        "company": "프리랜서 | 밴쿠버, 캐나다 | 2024 - 현재",
         "tasks": [
           "Laravel, Next.js, Docker, Python을 사용한 프로젝트 개발",
           "프로젝트 관리 및 문제 해결 이니셔티브 주도",
@@ -30,7 +30,7 @@
       },
       "freelance2": {
         "position": "풀스택 개발자",
-        "company": "프리랜서 | 대한민국 | 2020 - 2022",
+        "company": "마에베 주식회사 (리모트) | 대한민국, 캐나다 | 2020 - 2024",
         "tasks": [
           "React, Laravel, Python을 사용한 웹 애플리케이션 구축",
           "시스템 아키텍처 설계 및 풀스택 개발",

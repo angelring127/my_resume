@@ -800,18 +800,19 @@ export default function PortfolioPage() {
         style={{
           marginTop: "70px",
           minHeight: "calc(100vh - 70px)",
-          padding: "2rem 1rem",
+          padding: isMobile ? "1rem 0.5rem" : "2rem 1rem",
+          overflowX: "hidden",
         }}
       >
-        <div style={{ padding: "2rem", maxWidth: "1400px", margin: "0 auto" }}>
+        <div style={{ padding: isMobile ? "0.5rem" : "2rem", maxWidth: "1400px", margin: "0 auto", width: "100%" }}>
           {/* Hero Section */}
           <div
             style={{
               background: "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)",
-              borderRadius: "12px",
-              padding: "3rem 2rem",
+              borderRadius: isMobile ? "8px" : "12px",
+              padding: isMobile ? "1.5rem 1rem" : "3rem 2rem",
               color: "white",
-              marginBottom: "2rem",
+              marginBottom: isMobile ? "1rem" : "2rem",
               boxShadow: "0 8px 32px rgba(0, 0, 0, 0.3)",
               position: "relative",
               overflow: "hidden",
@@ -931,8 +932,8 @@ export default function PortfolioPage() {
               <div
                 style={{
                   background: "white",
-                  borderRadius: "12px",
-                  padding: "1.5rem",
+                  borderRadius: isMobile ? "8px" : "12px",
+                  padding: isMobile ? "1rem" : "1.5rem",
                   boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
                 }}
               >
@@ -1023,8 +1024,8 @@ export default function PortfolioPage() {
               <div
                 style={{
                   background: "white",
-                  borderRadius: "12px",
-                  padding: "1.5rem",
+                  borderRadius: isMobile ? "8px" : "12px",
+                  padding: isMobile ? "1rem" : "1.5rem",
                   boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
                 }}
               >
@@ -1189,8 +1190,8 @@ export default function PortfolioPage() {
               <div
                 style={{
                   background: "white",
-                  borderRadius: "12px",
-                  padding: "2rem",
+                  borderRadius: isMobile ? "8px" : "12px",
+                  padding: isMobile ? "1rem" : "2rem",
                   boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
                 }}
               >
@@ -1247,8 +1248,8 @@ export default function PortfolioPage() {
                         background: "rgba(255, 255, 255, 0.1)",
                         backdropFilter: "blur(10px)",
                         border: "1px solid rgba(255, 255, 255, 0.2)",
-                        borderRadius: "12px",
-                        padding: "1.5rem",
+                        borderRadius: isMobile ? "8px" : "12px",
+                        padding: isMobile ? "1rem" : "1.5rem",
                         transition: "all 0.2s ease",
                         cursor: "pointer",
                       }}

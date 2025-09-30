@@ -79,7 +79,9 @@ export default function LandingPage() {
   // 초기 언어 로드
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const savedLanguage = localStorage.getItem("preferredLanguage") as Language | null;
+      const savedLanguage = localStorage.getItem(
+        "preferredLanguage"
+      ) as Language | null;
       if (savedLanguage && ["ko", "en", "ja"].includes(savedLanguage)) {
         setCurrentLanguage(savedLanguage);
       }

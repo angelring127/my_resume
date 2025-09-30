@@ -644,7 +644,7 @@ export default function Navigation({
               right: 0,
               bottom: 0,
               background: "rgba(0, 0, 0, 0.5)",
-              zIndex: 9998,
+              zIndex: 999998,
             }}
             onClick={() => setIsMobileMenuOpen(false)}
           />
@@ -656,11 +656,14 @@ export default function Navigation({
               left: 0,
               bottom: 0,
               width: "280px",
+              maxWidth: "80vw",
               background: "white",
-              boxShadow: "2px 0 20px rgba(0, 0, 0, 0.2)",
-              zIndex: 9999,
+              boxShadow: "2px 0 20px rgba(0, 0, 0, 0.3)",
+              zIndex: 999999,
               padding: "1.5rem",
               overflowY: "auto",
+              display: "flex",
+              flexDirection: "column",
             }}
           >
             {/* Close Button */}

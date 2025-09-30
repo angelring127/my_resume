@@ -76,25 +76,26 @@ export default function Navigation({
   };
 
   return (
-    <header
-      className="no-print"
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        height: "70px",
-        background: "rgba(255, 255, 255, 0.95)",
-        backdropFilter: "blur(10px)",
-        borderBottom: "1px solid rgba(255, 255, 255, 0.2)",
-        boxShadow: "0 2px 20px rgba(0, 0, 0, 0.1)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        padding: isMobile ? "0 1rem" : "0 2rem",
-        zIndex: 1000,
-      }}
-    >
+    <>
+      <header
+        className="no-print"
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: "70px",
+          background: "rgba(255, 255, 255, 0.95)",
+          backdropFilter: "blur(10px)",
+          borderBottom: "1px solid rgba(255, 255, 255, 0.2)",
+          boxShadow: "0 2px 20px rgba(0, 0, 0, 0.1)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: isMobile ? "0 1rem" : "0 2rem",
+          zIndex: 1000,
+        }}
+      >
       {/* Left Side */}
       <div
         style={{
@@ -631,12 +632,14 @@ export default function Navigation({
           </div>
         )}
       </div>
+    </header>
 
-      {/* Mobile Menu Panel */}
+      {/* Mobile Menu Panel - 헤더 외부에 렌더링 */}
       {isMobileMenuOpen && (
         <>
           {/* Backdrop */}
           <div
+            className="no-print"
             style={{
               position: "fixed",
               top: 0,
@@ -650,6 +653,7 @@ export default function Navigation({
           />
           {/* Slide Menu */}
           <div
+            className="no-print"
             style={{
               position: "fixed",
               top: 0,
@@ -676,6 +680,7 @@ export default function Navigation({
                 cursor: "pointer",
                 color: "#666",
                 marginBottom: "1.5rem",
+                alignSelf: "flex-start",
               }}
               aria-label="Close menu"
             >
@@ -758,6 +763,6 @@ export default function Navigation({
           </div>
         </>
       )}
-    </header>
+    </>
   );
 }

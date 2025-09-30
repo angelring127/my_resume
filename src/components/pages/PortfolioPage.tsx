@@ -129,14 +129,14 @@ const translations = {
       "학교 공지와 주요 알림을 제공. Firebase 기반 푸시 알림 및 배지 처리 지원",
     nichidaiExperienceDesc: "Flutter로 제작, Firebase Notification/뱃지 구현",
 
-    kawataSurveyTitle: "사내 설문조사 시스템 - 河太建設",
+    kawataSurveyTitle: "사내 설문조사 시스템 - 加和太建設",
     kawataSurveyDesc:
       "분기별 설문과 결과 그래프 시각화가 가능한 웹 설문 시스템",
     kawataSurveySystemDesc: "분기 설문 작성과 결과 집계/그래프 제공",
     kawataSurveyExperienceDesc:
       "Laravel로 최초로 요구정의→설계→개발→테스트→납품까지 단독 수행. A부터 Z까지 전 과정 경험",
 
-    kawataCoreTitle: "사내 기반 시스템 기능 확장/보수 - 河太建設",
+    kawataCoreTitle: "사내 기반 시스템 기능 확장/보수 - 加和太建設",
     kawataCoreDesc: "건설 기업 핵심 업무 웹 시스템의 기능 추가와 유지보수",
     kawataCoreSystemDesc: "전사적 작업/관리용 대규모 웹 시스템",
     kawataCoreExperienceDesc:
@@ -436,14 +436,14 @@ const translations = {
     nichidaiSystemDesc: "Firebaseベースのプッシュ通知とバッジ処理を実装",
     nichidaiExperienceDesc: "Flutter制作、Firebase通知/バッジ対応",
 
-    kawataSurveyTitle: "社内アンケートシステム - 河太建設",
+    kawataSurveyTitle: "社内アンケートシステム - 加和太建設",
     kawataSurveyDesc:
       "四半期ごとのアンケート作成と結果グラフ可視化を行うWebシステム",
     kawataSurveySystemDesc: "アンケート作成、集計、グラフ表示",
     kawataSurveyExperienceDesc:
       "Laravelで要件定義→設計→開発→テスト→納品まで単独遂行。初のE2E担当",
 
-    kawataCoreTitle: "社内基盤システム 機能拡張/保守 - 河太建設",
+    kawataCoreTitle: "社内基盤システム 機能拡張/保守 - 加和太建設",
     kawataCoreDesc: "基幹業務Webシステムへの機能追加と保守",
     kawataCoreSystemDesc: "全社的な業務/管理用の大規模Webシステム",
     kawataCoreExperienceDesc:

@@ -875,6 +875,49 @@ export default function ResumePage() {
           onClick={() => setIsContactOpen(true)}
         />
 
+        {/* Floating Print Button (Mobile Only) */}
+        {isMobile && (
+          <button
+            onClick={() => window.print()}
+            style={{
+              position: "fixed",
+              bottom: "2rem",
+              right: "2rem",
+              transform: "translateY(-70px)",
+              width: "auto",
+              height: "auto",
+              background: "linear-gradient(135deg, #667eea, #764ba2)",
+              color: "white",
+              border: "none",
+              borderRadius: "50px",
+              padding: "0.9rem 1.25rem",
+              fontSize: "0.875rem",
+              fontWeight: 500,
+              cursor: "pointer",
+              boxShadow: "0 4px 20px rgba(102, 126, 234, 0.4)",
+              zIndex: 1000,
+              transition: "all 0.3s ease",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "0.5rem",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "translateY(-70px) scale(1.06)";
+              e.currentTarget.style.boxShadow = "0 6px 25px rgba(102, 126, 234, 0.6)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "translateY(-70px) scale(1)";
+              e.currentTarget.style.boxShadow = "0 4px 20px rgba(102, 126, 234, 0.4)";
+            }}
+            title={t.printResume}
+            aria-label={t.printResume}
+          >
+            <span style={{ fontSize: "1rem" }}>🖨️</span>
+            <span>{t.printResume}</span>
+          </button>
+        )}
+
         {/* Contact Modal */}
         {isContactOpen && (
           <div

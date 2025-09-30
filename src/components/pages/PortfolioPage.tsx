@@ -504,10 +504,10 @@ export default function PortfolioPage() {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     checkMobile();
     window.addEventListener("resize", checkMobile);
-    
+
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
@@ -1259,7 +1259,12 @@ export default function PortfolioPage() {
                           flexWrap: "wrap",
                         }}
                       >
-                        <div style={{ width: isMobile ? "100%" : "200px", flexShrink: 0 }}>
+                        <div
+                          style={{
+                            width: isMobile ? "100%" : "200px",
+                            flexShrink: 0,
+                          }}
+                        >
                           <div
                             style={{
                               width: "100%",

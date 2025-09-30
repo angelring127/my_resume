@@ -77,10 +77,10 @@ export default function LandingPage() {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     checkMobile();
     window.addEventListener("resize", checkMobile);
-    
+
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
   return (
@@ -94,13 +94,16 @@ export default function LandingPage() {
         width: "100vw",
         background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
         display: "flex",
-        alignItems: "center",
+        alignItems: isMobile ? "flex-start" : "center",
         justifyContent: "center",
-        position: "fixed",
+        position: isMobile ? "relative" : "fixed",
         top: 0,
         left: 0,
         right: 0,
         bottom: 0,
+        paddingTop: isMobile ? "5rem" : "0",
+        paddingBottom: isMobile ? "2rem" : "0",
+        overflowY: isMobile ? "auto" : "hidden",
       }}
     >
       {/* Language Switcher */}

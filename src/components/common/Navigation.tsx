@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type Language = "ko" | "en" | "ja";
 
@@ -41,7 +41,21 @@ export default function Navigation({
   onLanguageChange,
 }: NavigationProps) {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const t = translations[currentLanguage];
+
+  // 모바일 화면 감지
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const handleLanguageChange = (language: Language) => {
     if (onLanguageChange) {
@@ -70,38 +84,61 @@ export default function Navigation({
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        padding: "0 2rem",
+        padding: isMobile ? "0 1rem" : "0 2rem",
         zIndex: 1000,
       }}
     >
       {/* Left Side */}
-      <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-        {/* Back Button */}
-        <Link
-          href="/"
-          style={{
-            textDecoration: "none",
-            color: "#666",
-            fontSize: "1.5rem",
-            transition: "color 0.2s ease",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.color = "#00bcd4";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.color = "#666";
-          }}
-        >
-          ←
-        </Link>
+      <div style={{ display: "flex", alignItems: "center", gap: isMobile ? "0.5rem" : "1rem" }}>
+        {/* Burger Menu Button (Mobile Only) */}
+        {isMobile && (
+          <button
+            onClick={() => setIsMobileMenuOpen(true)}
+            style={{
+              background: "none",
+              border: "none",
+              color: "#666",
+              fontSize: "1.5rem",
+              cursor: "pointer",
+              padding: "0.25rem",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+            aria-label="Menu"
+          >
+            ☰
+          </button>
+        )}
+
+        {/* Back Button (Desktop Only) */}
+        {!isMobile && (
+          <Link
+            href="/"
+            style={{
+              textDecoration: "none",
+              color: "#666",
+              fontSize: "1.5rem",
+              transition: "color 0.2s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = "#00bcd4";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = "#666";
+            }}
+          >
+            ←
+          </Link>
+        )}
 
         {/* Brand */}
         <div
           style={{
-            borderLeft: "1px solid #e9ecef",
-            paddingLeft: "1rem",
-            width: "200px",
-            minWidth: "200px",
+            borderLeft: isMobile ? "none" : "1px solid #e9ecef",
+            paddingLeft: isMobile ? "0" : "1rem",
+            width: isMobile ? "auto" : "200px",
+            minWidth: isMobile ? "auto" : "200px",
             whiteSpace: "nowrap",
             overflow: "hidden",
             textOverflow: "ellipsis",
@@ -109,7 +146,7 @@ export default function Navigation({
         >
           <h1
             style={{
-              fontSize: "1.25rem",
+              fontSize: isMobile ? "1rem" : "1.25rem",
               fontWeight: "600",
               margin: 0,
               color: "#333",
@@ -117,28 +154,31 @@ export default function Navigation({
           >
             {t.name}
           </h1>
-          <p
-            style={{
-              fontSize: "0.875rem",
-              color: "#666",
-              margin: 0,
-            }}
-          >
-            {t.role}
-          </p>
+          {!isMobile && (
+            <p
+              style={{
+                fontSize: "0.875rem",
+                color: "#666",
+                margin: 0,
+              }}
+            >
+              {t.role}
+            </p>
+          )}
         </div>
       </div>
 
-      {/* Center - Navigation Tabs */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          background: "#f8f9fa",
-          borderRadius: "8px",
-          padding: "0.25rem",
-        }}
-      >
+      {/* Center - Navigation Tabs (Desktop Only) */}
+      {!isMobile && (
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            background: "#f8f9fa",
+            borderRadius: "8px",
+            padding: "0.25rem",
+          }}
+        >
         <Link
           href="/portfolio"
           style={{
@@ -205,19 +245,20 @@ export default function Navigation({
         >
           {t.resume}
         </Link>
-      </div>
+        </div>
+      )}
 
       {/* Right Side */}
       <div
         style={{
           display: "flex",
           alignItems: "center",
-          gap: "1rem",
+          gap: isMobile ? "0.5rem" : "1rem",
           position: "relative",
         }}
       >
-        {/* Print Button (Resume 페이지에서만 표시) */}
-        {currentPage === "resume" && (
+        {/* Print Button (Resume 페이지에서만 표시, Desktop Only) */}
+        {!isMobile && currentPage === "resume" && (
           <button
             onClick={handlePrint}
             style={{
@@ -246,17 +287,18 @@ export default function Navigation({
           </button>
         )}
 
-        {/* Language Switcher */}
-        <div
-          style={{
-            display: "flex",
-            background: "rgba(0, 0, 0, 0.05)",
-            border: "1px solid #e9ecef",
-            borderRadius: "6px",
-            padding: "0.25rem",
-            gap: "0.25rem",
-          }}
-        >
+        {/* Language Switcher (Desktop Only) */}
+        {!isMobile && (
+          <div
+            style={{
+              display: "flex",
+              background: "rgba(0, 0, 0, 0.05)",
+              border: "1px solid #e9ecef",
+              borderRadius: "6px",
+              padding: "0.25rem",
+              gap: "0.25rem",
+            }}
+          >
           <button
             onClick={() => handleLanguageChange("ko")}
             style={{
@@ -353,7 +395,8 @@ export default function Navigation({
           >
             日
           </button>
-        </div>
+          </div>
+        )}
 
         {/* Profile Avatar */}
         <button
@@ -500,6 +543,185 @@ export default function Navigation({
           </div>
         )}
       </div>
+
+      {/* Mobile Menu Panel */}
+      {isMobileMenuOpen && (
+        <>
+          {/* Backdrop */}
+          <div
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              background: "rgba(0, 0, 0, 0.5)",
+              zIndex: 9998,
+            }}
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+          {/* Slide Menu */}
+          <div
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              bottom: 0,
+              width: "280px",
+              background: "white",
+              boxShadow: "2px 0 20px rgba(0, 0, 0, 0.2)",
+              zIndex: 9999,
+              padding: "1.5rem",
+              overflowY: "auto",
+            }}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              style={{
+                background: "none",
+                border: "none",
+                fontSize: "1.5rem",
+                cursor: "pointer",
+                color: "#666",
+                marginBottom: "1.5rem",
+              }}
+              aria-label="Close menu"
+            >
+              ✕
+            </button>
+
+            {/* Navigation Links */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "2rem" }}>
+              <Link
+                href="/"
+                onClick={() => setIsMobileMenuOpen(false)}
+                style={{
+                  padding: "0.75rem 1rem",
+                  background: "#f8f9fa",
+                  borderRadius: "8px",
+                  color: "#333",
+                  textDecoration: "none",
+                  fontWeight: "500",
+                }}
+              >
+                ← {t.portfolio === "Portfolio" ? "Home" : "홈"}
+              </Link>
+              <Link
+                href="/portfolio"
+                onClick={() => setIsMobileMenuOpen(false)}
+                style={{
+                  padding: "0.75rem 1rem",
+                  background: currentPage === "portfolio" ? "#00bcd4" : "#f8f9fa",
+                  color: currentPage === "portfolio" ? "white" : "#333",
+                  borderRadius: "8px",
+                  textDecoration: "none",
+                  fontWeight: "500",
+                }}
+              >
+                {t.portfolio}
+              </Link>
+              <Link
+                href="/resume"
+                onClick={() => setIsMobileMenuOpen(false)}
+                style={{
+                  padding: "0.75rem 1rem",
+                  background: currentPage === "resume" ? "#00bcd4" : "#f8f9fa",
+                  color: currentPage === "resume" ? "white" : "#333",
+                  borderRadius: "8px",
+                  textDecoration: "none",
+                  fontWeight: "500",
+                }}
+              >
+                {t.resume}
+              </Link>
+              {currentPage === "resume" && (
+                <button
+                  onClick={() => {
+                    handlePrint();
+                    setIsMobileMenuOpen(false);
+                  }}
+                  style={{
+                    padding: "0.75rem 1rem",
+                    background: "#00bcd4",
+                    color: "white",
+                    border: "none",
+                    borderRadius: "8px",
+                    fontWeight: "500",
+                    cursor: "pointer",
+                    textAlign: "left",
+                  }}
+                >
+                  🖨️ {t.printResume}
+                </button>
+              )}
+            </div>
+
+            {/* Language Switcher */}
+            <div style={{ marginBottom: "1.5rem" }}>
+              <p style={{ fontSize: "0.875rem", fontWeight: "600", color: "#666", marginBottom: "0.75rem" }}>
+                Language
+              </p>
+              <div style={{ display: "flex", gap: "0.5rem" }}>
+                <button
+                  onClick={() => {
+                    handleLanguageChange("ko");
+                    setIsMobileMenuOpen(false);
+                  }}
+                  style={{
+                    flex: 1,
+                    padding: "0.5rem",
+                    background: currentLanguage === "ko" ? "#00bcd4" : "#f8f9fa",
+                    color: currentLanguage === "ko" ? "white" : "#666",
+                    border: "none",
+                    borderRadius: "6px",
+                    fontWeight: "500",
+                    cursor: "pointer",
+                  }}
+                >
+                  한국어
+                </button>
+                <button
+                  onClick={() => {
+                    handleLanguageChange("en");
+                    setIsMobileMenuOpen(false);
+                  }}
+                  style={{
+                    flex: 1,
+                    padding: "0.5rem",
+                    background: currentLanguage === "en" ? "#00bcd4" : "#f8f9fa",
+                    color: currentLanguage === "en" ? "white" : "#666",
+                    border: "none",
+                    borderRadius: "6px",
+                    fontWeight: "500",
+                    cursor: "pointer",
+                  }}
+                >
+                  English
+                </button>
+                <button
+                  onClick={() => {
+                    handleLanguageChange("ja");
+                    setIsMobileMenuOpen(false);
+                  }}
+                  style={{
+                    flex: 1,
+                    padding: "0.5rem",
+                    background: currentLanguage === "ja" ? "#00bcd4" : "#f8f9fa",
+                    color: currentLanguage === "ja" ? "white" : "#666",
+                    border: "none",
+                    borderRadius: "6px",
+                    fontWeight: "500",
+                    cursor: "pointer",
+                  }}
+                >
+                  日本語
+                </button>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
     </header>
   );
 }

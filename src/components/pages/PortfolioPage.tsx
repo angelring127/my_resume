@@ -99,6 +99,13 @@ const translations = {
     droneDocumentExperienceDesc:
       "처음으로 다른 사람들과 하나의 프로젝트를 제작하는 경험을 가졌으며, 코드의 통일성과 다른 사람들이 이해 할 수 있도록 주석을 달아야 하는지에 대한 중요성을 경험",
     // 追加: 新規経歴/プロジェクト（韓国語）
+    harvestKingdomTitle: "수확 왕국 (收穫王国 ミートユ)",
+    harvestKingdomDesc:
+      "가상 농업 체험 게임으로 실제 농가와 연동, 게임 내 재배가 현실 농작물로 연결",
+    harvestKingdomSystemDesc:
+      "이 앱은 사람들이 손쉽게 농업을 체험하고 직접 채소를 키워볼 수 있는 게임을 목표로 합니다. 게임 속에서 가상으로 채소를 재배하면, 실제 농가에서도 같은 채소가 재배가 되고, 게임 안의 코인으로 교환할 수도 있습니다.",
+    harvestKingdomExperienceDesc:
+      "외주 용역으로서 이미 만들어진 시스템에 디자인을 입히는 작업을 받았습니다. 간단한 작업이라 서둘러 판단하여 실제 개발 시간은 외주비를 넘어서는 문제가 발생 했습니다. 이 이상 손해를 볼수는 없어 외주를 주신 고객 회사와 논의 끝에 추가 금액을 받을 수 있게 되었습니다. 이 경험으로 작은 일에도 너무 섣불리 결론을 내면 안된다는것을 알게 되었습니다.",
     terumoTitle: "시스템 프레임워크 업그레이드 - 테르모 휴먼 크리에이트",
     terumoDesc:
       "사내 알림 및 포인트 기반 물품구입 시스템의 서버 이전 및 CakePHP3→4, PHP8 업그레이드",
@@ -252,6 +259,13 @@ const translations = {
     droneDocumentExperienceDesc:
       "This was my first experience working on a project with other people, and I learned the importance of code consistency and the need to add comments so others can understand.",
     // Added: new experiences/projects (English)
+    harvestKingdomTitle: "Harvest Kingdom (収穫王国 Meetyou)",
+    harvestKingdomDesc:
+      "Virtual farming game connected to real farms, where in-game cultivation becomes actual crops",
+    harvestKingdomSystemDesc:
+      "This app aims to let people easily experience agriculture and grow vegetables through gaming. When users cultivate virtual vegetables in the game, the same vegetables are grown on actual farms, and can be exchanged for in-game coins.",
+    harvestKingdomExperienceDesc:
+      "Received an outsourcing contract to apply design to an existing system. Rushed to judgment thinking it was simple work, but actual development time exceeded the contract fee. To avoid further losses, negotiated with the client company and secured additional compensation. This experience taught me not to hastily conclude even on small tasks.",
     terumoTitle: "System Framework Upgrade - TERUMO Human Create",
     terumoDesc:
       "Migrated servers and upgraded in-house notification and point-purchase system from CakePHP3 to 4 and PHP to 8.x",
@@ -407,6 +421,13 @@ const translations = {
     droneDocumentExperienceDesc:
       "初めて他の人たちと一つのプロジェクトを制作する経験を持ち、コードの統一性と他の人たちが理解できるようにコメントを付けなければならないかについての重要性を経験しました。",
     // 追加: 新規プロジェクト（日本語）
+    harvestKingdomTitle: "収穫王国 ミートユ",
+    harvestKingdomDesc:
+      "実農場と連動した仮想農業体験ゲーム、ゲーム内栽培が現実の作物に",
+    harvestKingdomSystemDesc:
+      "このアプリは、人々が手軽に農業を体験し、直接野菜を育てることができるゲームを目指しています。ゲーム内で仮想的に野菜を栽培すると、実際の農家でも同じ野菜が栽培され、ゲーム内のコインで交換することもできます。",
+    harvestKingdomExperienceDesc:
+      "外注業務としてすでに作られたシステムにデザインを適用する作業を受けました。簡単な作業だと急いで判断したため、実際の開発時間が外注費を超える問題が発生しました。これ以上損失を出すわけにはいかず、発注元の顧客会社と協議の結果、追加金額を受け取ることができました。この経験で、小さな仕事でも軽率に結論を出してはいけないことを学びました。",
     terumoTitle:
       "システムフレームワークアップグレード - テルモヒューマンクリエイト",
     terumoDesc:
@@ -534,6 +555,20 @@ export default function PortfolioPage() {
   const projects: Project[] = [
     {
       id: 1,
+      title: t.harvestKingdomTitle,
+      description: t.harvestKingdomDesc,
+      techStack: ["React Native", "Laravel", "MySQL"],
+      demoUrl: null,
+      githubUrl: null,
+      featured: true,
+      imageUrl: "/projects/try_farming.jpg",
+      startDate: "2025.02",
+      endDate: t.present,
+      systemDescription: t.harvestKingdomSystemDesc,
+      experienceDescription: t.harvestKingdomExperienceDesc,
+    },
+    {
+      id: 2,
       title: t.dekitanTitle,
       description: t.dekitanDesc,
       techStack: ["Next.js", "Laravel", "MySQL"],
@@ -547,7 +582,7 @@ export default function PortfolioPage() {
       experienceDescription: t.dekitanExperienceDesc,
     },
     {
-      id: 2,
+      id: 3,
       title: t.yomikakiTitle,
       description: t.yomikakiDesc,
       techStack: ["Laravel", "Python", "OpenCV", "Google Script API"],
@@ -561,7 +596,7 @@ export default function PortfolioPage() {
       experienceDescription: t.yomikakiExperienceDesc,
     },
     {
-      id: 3,
+      id: 4,
       title: t.eelLogisticsTitle,
       description: t.eelLogisticsDesc,
       techStack: ["Laravel", "Livewire", "MySQL"],
@@ -575,7 +610,7 @@ export default function PortfolioPage() {
       experienceDescription: t.eelLogisticsExperienceDesc,
     },
     {
-      id: 4,
+      id: 5,
       title: t.transportationTitle,
       description: t.transportationDesc,
       techStack: ["Next.js", "Laravel", "Docker", "MySQL"],
@@ -589,7 +624,7 @@ export default function PortfolioPage() {
       experienceDescription: t.transportationExperienceDesc,
     },
     {
-      id: 5,
+      id: 6,
       title: t.mealTagTitle,
       description: t.mealTagDesc,
       techStack: ["Laravel", "MySQL", "JavaScript"],
@@ -603,7 +638,7 @@ export default function PortfolioPage() {
       experienceDescription: t.mealTagExperienceDesc,
     },
     {
-      id: 6,
+      id: 7,
       title: t.droneDocumentTitle,
       description: t.droneDocumentDesc,
       techStack: ["Android", "Java", "SQLite"],
@@ -617,7 +652,7 @@ export default function PortfolioPage() {
       experienceDescription: t.droneDocumentExperienceDesc,
     },
     {
-      id: 7,
+      id: 8,
       title: t.terumoTitle,
       description: t.terumoDesc,
       techStack: ["CakePHP4", "PHP 8", "MySQL"],
@@ -631,7 +666,7 @@ export default function PortfolioPage() {
       experienceDescription: t.terumoExperienceDesc,
     },
     {
-      id: 8,
+      id: 9,
       title: t.yazakiTitle,
       description: t.yazakiDesc,
       techStack: ["CakePHP4", "PHP", "MySQL"],
@@ -645,7 +680,7 @@ export default function PortfolioPage() {
       experienceDescription: t.yazakiExperienceDesc,
     },
     {
-      id: 9,
+      id: 10,
       title: t.esTitle,
       description: t.esDesc,
       techStack: ["Flutter", "Firebase"],
@@ -659,7 +694,7 @@ export default function PortfolioPage() {
       experienceDescription: t.esExperienceDesc,
     },
     {
-      id: 10,
+      id: 11,
       title: t.nichidaiTitle,
       description: t.nichidaiDesc,
       techStack: ["Flutter", "Firebase"],
@@ -674,7 +709,7 @@ export default function PortfolioPage() {
       experienceDescription: t.nichidaiExperienceDesc,
     },
     {
-      id: 11,
+      id: 12,
       title: t.kawataSurveyTitle,
       description: t.kawataSurveyDesc,
       techStack: ["Laravel", "MySQL"],
@@ -688,7 +723,7 @@ export default function PortfolioPage() {
       experienceDescription: t.kawataSurveyExperienceDesc,
     },
     {
-      id: 12,
+      id: 13,
       title: t.kawataCoreTitle,
       description: t.kawataCoreDesc,
       techStack: ["Laravel", "PHP", "MySQL"],
@@ -702,7 +737,7 @@ export default function PortfolioPage() {
       experienceDescription: t.kawataCoreExperienceDesc,
     },
     {
-      id: 13,
+      id: 14,
       title: t.sonarTitle,
       description: t.sonarDesc,
       techStack: ["Python", "Raspberry Pi"],
@@ -716,7 +751,7 @@ export default function PortfolioPage() {
       experienceDescription: t.sonarExperienceDesc,
     },
     {
-      id: 14,
+      id: 15,
       title: t.inhouseNewsTitle,
       description: t.inhouseNewsDesc,
       techStack: ["CakePHP", "Android", "Firebase"],

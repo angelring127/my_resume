@@ -96,6 +96,11 @@ a:hover {
     margin: 1cm;
   }
 
+  /* 화면 요소 숨김 제어 */
+  .no-print {
+    display: none !important;
+  }
+
   /* Stack Overflow 방식: 모든 요소를 숨기고 프린트할 요소만 보이게 */
   body * {
     visibility: hidden;
@@ -111,6 +116,10 @@ a:hover {
     left: 0;
     top: 0;
     width: 100%;
+    background: white !important;
+    box-shadow: none !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   h1,
@@ -162,5 +171,28 @@ a:hover {
   .experience-item {
     margin-bottom: 0.3cm;
     page-break-inside: avoid;
+  }
+
+  /* 일반 요소들의 배경/그림자 제거로 깔끔한 인쇄 */
+  * {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  /* 링크 밑줄 제거, 색상 통일 */
+  a {
+    color: black !important;
+    text-decoration: none !important;
+  }
+
+  /* 이미지/표 등의 분리 방지 */
+  img, table, pre, blockquote {
+    page-break-inside: avoid;
+  }
+
+  /* 문단 고아/과부 제어 */
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
   }
 }

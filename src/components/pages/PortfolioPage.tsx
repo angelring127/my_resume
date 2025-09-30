@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Navigation from "../common/Navigation";
+import ContactFab from "../common/ContactFab";
 
 // 언어별 번역 데이터
 const translations = {
@@ -97,6 +98,64 @@ const translations = {
       "특정 지역 혹은 일정 인구가 있는 지역에서는 정부의 허가가 필요함으로 허가를 받기 위한 서류작업이 필요한데 꽤 많은 자료를 필요로 하므로 좀 더 간단하게 작업을 할 수 있도록 안드로이드폰 에서 미리설정 및 스마트폰의 기능을 이용하여 간단하게 서류 작성 기능을 제작",
     droneDocumentExperienceDesc:
       "처음으로 다른 사람들과 하나의 프로젝트를 제작하는 경험을 가졌으며, 코드의 통일성과 다른 사람들이 이해 할 수 있도록 주석을 달아야 하는지에 대한 중요성을 경험",
+    // 追加: 新規経歴/プロジェクト（韓国語）
+    terumoTitle: "시스템 프레임워크 업그레이드 - 테르모 휴먼 크리에이트",
+    terumoDesc:
+      "사내 알림 및 포인트 기반 물품구입 시스템의 서버 이전 및 CakePHP3→4, PHP8 업그레이드",
+    terumoSystemDesc:
+      "사내 알림과 포인트로 물품을 구입하는 시스템. 서버 이전과 함께 CakePHP3에서 4로, PHP 버전을 8대로 올려 안정성과 보안을 강화",
+    terumoExperienceDesc:
+      "프레임워크와 서버 업그레이드는 문제없이 완료. 이후 보안 컨설팅 테스트에서 다양한 인젝션 우려 지적에 대응책을 마련하며 보안 전반에 대한 이해를 심화. 프레임워크 레벨의 기본 방어 외 추가 보안 고려가 필요함을 체득",
+
+    yazakiTitle: "전압선 사이즈 선정 시스템 - 矢崎電線",
+    yazakiDesc:
+      "엑셀 계산 로직을 CakePHP4로 이관하여 전압선/사이즈별 견적과 조건, 드럼 선택을 웹에서 확인",
+    yazakiSystemDesc:
+      "전문 전압선 업체의 고객 요구에 맞춰 가격과 가능 조건, 사용 드럼을 산출/표시하는 웹 시스템",
+    yazakiExperienceDesc:
+      "복잡한 엑셀 계산을 PHP로 동등 재현. 기존 엑셀 내 오류를 발견하여 고객과 검증/대응 방안을 조율하는 데 개발보다 더 많은 시간이 소요",
+
+    esTitle: "에스테 자사 시스템 Es.",
+    esDesc:
+      "회원 관리, 피부 관리 가이드, QR 등록, 생리 주기 관리 등 여성 고객 중심의 웹/앱 시스템",
+    esSystemDesc:
+      "관리용 웹과 모바일 앱으로 구성된 에스테 회사의 회원 관리 시스템",
+    esExperienceDesc:
+      "Flutter로 iOS/Android 앱을 동시 개발. 난이도는 높지 않았으나 기능/디자인 변경과 추가 요구로 장기 대응",
+
+    nichidaiTitle: "닛타이 토요 야마 중고등학교 공식 앱",
+    nichidaiDesc: "학교 주요 알림 제공 크로스플랫폼 앱",
+    nichidaiSystemDesc:
+      "학교 공지와 주요 알림을 제공. Firebase 기반 푸시 알림 및 배지 처리 지원",
+    nichidaiExperienceDesc: "Flutter로 제작, Firebase Notification/뱃지 구현",
+
+    kawataSurveyTitle: "사내 설문조사 시스템 - 河太建設",
+    kawataSurveyDesc:
+      "분기별 설문과 결과 그래프 시각화가 가능한 웹 설문 시스템",
+    kawataSurveySystemDesc: "분기 설문 작성과 결과 집계/그래프 제공",
+    kawataSurveyExperienceDesc:
+      "Laravel로 최초로 요구정의→설계→개발→테스트→납품까지 단독 수행. A부터 Z까지 전 과정 경험",
+
+    kawataCoreTitle: "사내 기반 시스템 기능 확장/보수 - 河太建設",
+    kawataCoreDesc: "건설 기업 핵심 업무 웹 시스템의 기능 추가와 유지보수",
+    kawataCoreSystemDesc: "전사적 작업/관리용 대규모 웹 시스템",
+    kawataCoreExperienceDesc:
+      "거대 레거시 코드의 파편화와 품질 저하가 보수에 미치는 영향을 체감. 지속 가능한 코딩 규율의 중요성 재인식",
+
+    sonarTitle: "음파탐지 장기 기록 장치 - 葵ソニック・渋谷潜水工業",
+    sonarDesc:
+      "라즈베리 파이로 음파 탐지기 데이터를 장시간(72h+) 기록, 뷰어 호환 포맷 생성",
+    sonarSystemDesc:
+      "유선으로 이진 데이터를 수집해 기존 뷰어로 열람 가능하도록 파일 포맷을 재구성",
+    sonarExperienceDesc:
+      "Python/Raspberry Pi, 바이너리 스니핑과 포맷 역공학을 학습",
+
+    inhouseNewsTitle: "사내신문 시스템 (여러 회사 납품)",
+    inhouseNewsDesc:
+      "CakePHP 웹/안드로이드 앱 기반의 공지/권고 알림 시스템, 예약 게시와 Push 지원",
+    inhouseNewsSystemDesc: "업로드 예약, Push 알림, 확인자/미확인자 관리",
+    inhouseNewsExperienceDesc:
+      "1만 사용자 규모에서 확인 집계 지연을 DB 선계산으로 해결. 작은 개선의 큰 효과를 경험",
   },
   en: {
     name: "SANG HO YOUN",
@@ -192,6 +251,69 @@ const translations = {
       "Since government permits are required in specific areas or areas with certain populations, document work is necessary for obtaining permits, requiring considerable data. This system was created to simplify the work by using Android phones for pre-configuration and smartphone functions for simple document creation.",
     droneDocumentExperienceDesc:
       "This was my first experience working on a project with other people, and I learned the importance of code consistency and the need to add comments so others can understand.",
+    // Added: new experiences/projects (English)
+    terumoTitle: "System Framework Upgrade - TERUMO Human Create",
+    terumoDesc:
+      "Migrated servers and upgraded in-house notification and point-purchase system from CakePHP3 to 4 and PHP to 8.x",
+    terumoSystemDesc:
+      "An internal system for notifications and point-based purchasing. Upgraded framework and runtime to enhance stability and security",
+    terumoExperienceDesc:
+      "Completed server/framework upgrades smoothly. Addressed findings from a security consultancy (injection concerns), deepening security understanding beyond framework defaults",
+
+    yazakiTitle: "Voltage Drop & Cable Size Selection System - Yazaki",
+    yazakiDesc:
+      "Ported complex Excel calculations to CakePHP4 so users can estimate cable/size, conditions, and drum selection on the web",
+    yazakiSystemDesc:
+      "A web system for a specialized cable company to show pricing, feasibility conditions, and drum selection based on customer needs",
+    yazakiExperienceDesc:
+      "Replicated intricate Excel logic in PHP. Spent significant time validating and correcting legacy Excel errors with the client",
+
+    esTitle: "In-house Esthetic System ‘Es.’",
+    esDesc:
+      "Membership management, skincare guides, QR-based registration, and menstrual cycle tracking for female customers",
+    esSystemDesc:
+      "A company system composed of an admin web app and mobile apps",
+    esExperienceDesc:
+      "Developed iOS/Android app with Flutter. Long-running due to frequent feature/design changes requested by the client",
+
+    nichidaiTitle: "Nichidai Buzan Jr/Sr High School App",
+    nichidaiDesc: "Official school app for announcements",
+    nichidaiSystemDesc:
+      "Provides school notices with Firebase-based push notifications and badges",
+    nichidaiExperienceDesc:
+      "Built with Flutter; implemented Firebase Notifications and badges",
+
+    kawataSurveyTitle: "In-house Survey System - Kawata Construction",
+    kawataSurveyDesc: "Quarterly surveys and results visualization with charts",
+    kawataSurveySystemDesc:
+      "Create surveys, aggregate results, and display graphs",
+    kawataSurveyExperienceDesc:
+      "First solo end-to-end delivery with Laravel: requirements → design → build → test → delivery",
+
+    kawataCoreTitle:
+      "Core In-house System Enhancements/Maintenance - Kawata Construction",
+    kawataCoreDesc:
+      "Added features and maintenance to a mission-critical enterprise web system",
+    kawataCoreSystemDesc:
+      "Large-scale company-wide operations/management system",
+    kawataCoreExperienceDesc:
+      "Felt the impact of fragmented legacy code on maintainability; reinforced the need for sustainable coding standards",
+
+    sonarTitle: "Long-duration Sonar Recording Device",
+    sonarDesc:
+      "Raspberry Pi-based solution to record sonar data for 72h+ with viewer-compatible file format",
+    sonarSystemDesc:
+      "Captured binary data over wired connection and reconstructed files to be readable by the vendor’s viewer",
+    sonarExperienceDesc:
+      "Learned Python/Raspberry Pi, binary sniffing, and reverse-engineering record formats",
+
+    inhouseNewsTitle: "In-house News System (Multiple Companies)",
+    inhouseNewsDesc:
+      "CakePHP web + Android app for internal announcements with scheduled posts and push notifications",
+    inhouseNewsSystemDesc:
+      "Scheduling, push delivery, and read/unread management",
+    inhouseNewsExperienceDesc:
+      "Solved 10k-user read-aggregation latency by precomputing in DB; small change, big impact",
   },
   ja: {
     name: "ユン・サンホ (Sam)",
@@ -284,6 +406,63 @@ const translations = {
       "特定地域または一定人口がある地域では政府の許可が必要で、許可を受けるための書類作業が必要ですが、かなり多くの資料が必要なので、より簡単に作業ができるようにAndroidフォンで事前設定およびスマートフォンの機能を利用して簡単に書類作成機能を制作しました。",
     droneDocumentExperienceDesc:
       "初めて他の人たちと一つのプロジェクトを制作する経験を持ち、コードの統一性と他の人たちが理解できるようにコメントを付けなければならないかについての重要性を経験しました。",
+    // 追加: 新規プロジェクト（日本語）
+    terumoTitle:
+      "システムフレームワークアップグレード - テルモヒューマンクリエイト",
+    terumoDesc:
+      "社内通知・ポイント購入システムのサーバ移行およびCakePHP3→4、PHP8系へアップグレード",
+    terumoSystemDesc:
+      "社内通知とポイントによる物品購入を行うシステム。フレームワーク/実行環境更新で安定性とセキュリティを強化",
+    terumoExperienceDesc:
+      "移行自体は問題なく完了。セキュリティ診断で指摘されたインジェクション懸念に対処し、フレームワーク標準を超える防御の必要性を学習",
+
+    yazakiTitle: "電圧降下・サイズ選定システム - 矢崎電線",
+    yazakiDesc:
+      "Excel計算ロジックをCakePHP4に移植し、ケーブル/サイズ別見積・条件・ドラム選定をWebで提供",
+    yazakiSystemDesc:
+      "専門電線会社向けに価格や可否条件、ドラム選定を表示するWebシステム",
+    yazakiExperienceDesc:
+      "複雑なExcel計算をPHPで等価再現。既存Excelの誤りを発見し、顧客と検証/対応方針を調整",
+
+    esTitle: "エステ自社システム Es.",
+    esDesc:
+      "会員管理、スキンケアガイド、QR登録、生理周期管理など女性向け機能を提供",
+    esSystemDesc: "管理用Webとモバイルアプリで構成された会社システム",
+    esExperienceDesc:
+      "FlutterでiOS/Androidアプリを同時開発。頻繁な機能/デザイン変更に長期対応",
+
+    nichidaiTitle: "日大豊山中学・高校 公式アプリ",
+    nichidaiDesc: "学校のお知らせ配信アプリ",
+    nichidaiSystemDesc: "Firebaseベースのプッシュ通知とバッジ処理を実装",
+    nichidaiExperienceDesc: "Flutter制作、Firebase通知/バッジ対応",
+
+    kawataSurveyTitle: "社内アンケートシステム - 河太建設",
+    kawataSurveyDesc:
+      "四半期ごとのアンケート作成と結果グラフ可視化を行うWebシステム",
+    kawataSurveySystemDesc: "アンケート作成、集計、グラフ表示",
+    kawataSurveyExperienceDesc:
+      "Laravelで要件定義→設計→開発→テスト→納品まで単独遂行。初のE2E担当",
+
+    kawataCoreTitle: "社内基盤システム 機能拡張/保守 - 河太建設",
+    kawataCoreDesc: "基幹業務Webシステムへの機能追加と保守",
+    kawataCoreSystemDesc: "全社的な業務/管理用の大規模Webシステム",
+    kawataCoreExperienceDesc:
+      "断片化したレガシーコードが保守性に与える影響を痛感。持続可能なコーディング規律の重要性を再認識",
+
+    sonarTitle: "音波探知 長時間記録装置",
+    sonarDesc:
+      "Raspberry Piで音波探知データを72時間以上記録し、ビューア互換形式で出力",
+    sonarSystemDesc:
+      "有線でバイナリデータを取得し、既存ビューアで閲覧可能なファイル形式に再構成",
+    sonarExperienceDesc:
+      "Python/Raspberry Pi、バイナリスニッフィングとフォーマットのリバースエンジニアリングを習得",
+
+    inhouseNewsTitle: "社内ニュースシステム（複数社納品）",
+    inhouseNewsDesc:
+      "CakePHP Web/Androidアプリによるお知らせ配信、予約投稿とPushに対応",
+    inhouseNewsSystemDesc: "予約投稿、Push配信、既読/未読管理",
+    inhouseNewsExperienceDesc:
+      "1万人規模での既読集計遅延をDB先計算で解消。小さな改善の大きな効果を実感",
   },
 };
 
@@ -403,6 +582,119 @@ export default function PortfolioPage() {
       endDate: "2018.09",
       systemDescription: t.droneDocumentSystemDesc,
       experienceDescription: t.droneDocumentExperienceDesc,
+    },
+    {
+      id: 7,
+      title: t.terumoTitle,
+      description: t.terumoDesc,
+      techStack: ["CakePHP4", "PHP 8", "MySQL"],
+      demoUrl: "https://www.terumohumancreate.co.jp/",
+      githubUrl: null,
+      featured: false,
+      imageUrl: "https://picsum.photos/seed/terumo/800/480",
+      startDate: "2022.08",
+      endDate: "2023.04",
+      systemDescription: t.terumoSystemDesc,
+      experienceDescription: t.terumoExperienceDesc,
+    },
+    {
+      id: 8,
+      title: t.yazakiTitle,
+      description: t.yazakiDesc,
+      techStack: ["CakePHP4", "PHP", "MySQL"],
+      demoUrl: null,
+      githubUrl: null,
+      featured: false,
+      imageUrl: "https://picsum.photos/seed/yazaki/800/480",
+      startDate: "2022.08",
+      endDate: "2023.05",
+      systemDescription: t.yazakiSystemDesc,
+      experienceDescription: t.yazakiExperienceDesc,
+    },
+    {
+      id: 9,
+      title: t.esTitle,
+      description: t.esDesc,
+      techStack: ["Flutter", "Firebase"],
+      demoUrl: null,
+      githubUrl: null,
+      featured: false,
+      imageUrl: "https://picsum.photos/seed/esthetic/800/480",
+      startDate: "2021.12",
+      endDate: "2022.12",
+      systemDescription: t.esSystemDesc,
+      experienceDescription: t.esExperienceDesc,
+    },
+    {
+      id: 10,
+      title: t.nichidaiTitle,
+      description: t.nichidaiDesc,
+      techStack: ["Flutter", "Firebase"],
+      demoUrl:
+        "https://play.google.com/store/apps/details?id=jp.co.maebe.nichidaibuzan",
+      githubUrl: null,
+      featured: false,
+      imageUrl: "https://picsum.photos/seed/nichidai/800/480",
+      startDate: "2021.09",
+      endDate: "2021.11",
+      systemDescription: t.nichidaiSystemDesc,
+      experienceDescription: t.nichidaiExperienceDesc,
+    },
+    {
+      id: 11,
+      title: t.kawataSurveyTitle,
+      description: t.kawataSurveyDesc,
+      techStack: ["Laravel", "MySQL"],
+      demoUrl: null,
+      githubUrl: null,
+      featured: false,
+      imageUrl: "https://picsum.photos/seed/kawata-survey/800/480",
+      startDate: "2020.01",
+      endDate: "2020.06",
+      systemDescription: t.kawataSurveySystemDesc,
+      experienceDescription: t.kawataSurveyExperienceDesc,
+    },
+    {
+      id: 12,
+      title: t.kawataCoreTitle,
+      description: t.kawataCoreDesc,
+      techStack: ["Laravel", "PHP", "MySQL"],
+      demoUrl: null,
+      githubUrl: null,
+      featured: false,
+      imageUrl: "https://picsum.photos/seed/kawata-core/800/480",
+      startDate: "2019.09",
+      endDate: "2020.03",
+      systemDescription: t.kawataCoreSystemDesc,
+      experienceDescription: t.kawataCoreExperienceDesc,
+    },
+    {
+      id: 13,
+      title: t.sonarTitle,
+      description: t.sonarDesc,
+      techStack: ["Python", "Raspberry Pi"],
+      demoUrl: null,
+      githubUrl: null,
+      featured: false,
+      imageUrl: "https://picsum.photos/seed/sonar/800/480",
+      startDate: "2019.04",
+      endDate: "2019.07",
+      systemDescription: t.sonarSystemDesc,
+      experienceDescription: t.sonarExperienceDesc,
+    },
+    {
+      id: 14,
+      title: t.inhouseNewsTitle,
+      description: t.inhouseNewsDesc,
+      techStack: ["CakePHP", "Android", "Firebase"],
+      demoUrl: null,
+      githubUrl: null,
+      featured: false,
+      imageUrl: "https://picsum.photos/seed/inhouse-news/800/480",
+      startDate: "2019.04",
+      endDate: "2021.06",
+      systemDescription: t.inhouseNewsSystemDesc,
+      experienceDescription: t.inhouseNewsExperienceDesc,
     },
   ].sort((a, b) => {
     const dateA = new Date(a.startDate);
@@ -763,7 +1055,8 @@ export default function PortfolioPage() {
                       color: "#f59e0b",
                       skills: [
                         { name: "Flutter", iconId: "flutter" },
-                        { name: "React Native", iconId: "react" },
+                        { name: "Swift4", iconId: "swift" },
+                        { name: "Kotlin", iconId: "kotlin" },
                         { name: "Firebase", iconId: "firebase" },
                       ],
                     },
@@ -1187,39 +1480,11 @@ export default function PortfolioPage() {
       </main>
 
       {/* Floating Contact Button */}
-      <button
-        onClick={() => setIsContactOpen(true)}
-        style={{
-          position: "fixed",
-          bottom: "2rem",
-          right: "2rem",
-          width: "60px",
-          height: "60px",
-          background: "linear-gradient(135deg, #00bcd4, #0097a7)",
-          color: "white",
-          border: "none",
-          borderRadius: "50%",
-          fontSize: "1.5rem",
-          cursor: "pointer",
-          boxShadow: "0 4px 20px rgba(0, 188, 212, 0.4)",
-          zIndex: 1000,
-          transition: "all 0.3s ease",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.transform = "scale(1.1)";
-          e.currentTarget.style.boxShadow = "0 6px 25px rgba(0, 188, 212, 0.6)";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.transform = "scale(1)";
-          e.currentTarget.style.boxShadow = "0 4px 20px rgba(0, 188, 212, 0.4)";
-        }}
+      <ContactFab
+        label={t.contactMe}
         title={t.contactMe}
-      >
-        📧
-      </button>
+        onClick={() => setIsContactOpen(true)}
+      />
 
       {/* Project Detail Modal */}
       {selectedProject && (

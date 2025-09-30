@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Navigation from "../common/Navigation";
+import ContactFab from "../common/ContactFab";
 
 // 언어별 텍스트 데이터
 const translations = {
@@ -132,7 +133,11 @@ export default function ResumePage() {
         }}
       >
         {/* Navigation */}
-        <Navigation currentPage="resume" />
+        <Navigation
+          currentPage="resume"
+          currentLanguage={currentLanguage}
+          onLanguageChange={setCurrentLanguage}
+        />
 
         {/* Main Content */}
         <main
@@ -504,26 +509,24 @@ export default function ResumePage() {
                     }}
                   >
                     <li style={{ marginBottom: "1px", textAlign: "justify" }}>
-                      Led high-traffic e-commerce platform development (Next.js,
-                      Laravel), increasing user engagement by 40% and supporting
-                      10,000+ daily active users
+                      Led e-commerce platform development (Next.js, Laravel) and
+                      enhanced user experience and stability
                     </li>
                     <li style={{ marginBottom: "1px", textAlign: "justify" }}>
-                      Implemented CI/CD pipeline with Docker & AWS, reducing
-                      deployment time by 60% and eliminating production downtime
+                      Introduced Docker & AWS based CI/CD pipeline to streamline
+                      deployment and strengthen release consistency
                     </li>
                     <li style={{ marginBottom: "1px", textAlign: "justify" }}>
-                      Launched 3 Flutter mobile applications with 50,000+ total
-                      downloads
+                      Delivered multiple Flutter mobile applications from build
+                      to store release
                     </li>
                     <li style={{ marginBottom: "1px", textAlign: "justify" }}>
-                      Built microservices backend architecture, reducing API
-                      response time by 50% through database optimization and
-                      caching strategies
+                      Designed microservices-oriented backend and optimized APIs
+                      with database tuning and caching
                     </li>
                     <li style={{ marginBottom: "1px", textAlign: "justify" }}>
-                      Mentored 5 junior developers, establishing code review
-                      processes and improving overall team productivity by 30%
+                      Mentored junior developers and established code review
+                      practices for consistent code quality
                     </li>
                   </ul>
                 </div>
@@ -579,17 +582,17 @@ export default function ResumePage() {
                     }}
                   >
                     <li style={{ marginBottom: "1px", textAlign: "justify" }}>
-                      Developed multi-vendor e-commerce platform serving 500+
-                      merchants
+                      Developed a multi-vendor e-commerce platform focusing on
+                      reliability and maintainability
                     </li>
                     <li style={{ marginBottom: "1px", textAlign: "justify" }}>
-                      Implemented secure payment systems with PCI DSS
-                      compliance, processing $2M+ annually
+                      Implemented secure payment integrations with PCI DSS
+                      compliance
                     </li>
                     <li style={{ marginBottom: "1px", textAlign: "justify" }}>
-                      Delivered localized solutions for Japanese and
-                      international markets, supporting 3 languages and multiple
-                      currencies
+                      Delivered localized features for Japanese and
+                      international markets with multilingual and multi-currency
+                      support
                     </li>
                   </ul>
                 </div>
@@ -835,35 +838,152 @@ export default function ResumePage() {
         </main>
 
         {/* Floating Contact Button */}
-        <button
+        <ContactFab
+          label={t.contactMe}
+          title={t.contactMe}
           onClick={() => setIsContactOpen(true)}
-          className="no-print"
-          style={{
-            position: "fixed",
-            bottom: "2rem",
-            right: "2rem",
-            width: "auto",
-            height: "auto",
-            background: "linear-gradient(135deg, #00bcd4, #0097a7)",
-            color: "white",
-            border: "none",
-            borderRadius: "50px",
-            padding: "1rem 1.5rem",
-            fontSize: "0.875rem",
-            fontWeight: "500",
-            cursor: "pointer",
-            boxShadow: "0 4px 20px rgba(0, 188, 212, 0.4)",
-            zIndex: 1000,
-            transition: "all 0.3s ease",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "0.5rem",
-          }}
-          title="Contact Me"
-        >
-          ✉️ {t.contactMe}
-        </button>
+        />
+
+        {/* Contact Modal */}
+        {isContactOpen && (
+          <div
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              background: "rgba(0, 0, 0, 0.5)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              zIndex: 10000,
+              padding: "1rem",
+            }}
+            onClick={() => setIsContactOpen(false)}
+          >
+            <div
+              style={{
+                background: "white",
+                borderRadius: "12px",
+                padding: "2rem",
+                maxWidth: "400px",
+                width: "90%",
+                boxShadow: "0 20px 40px rgba(0, 0, 0, 0.2)",
+              }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <h3
+                style={{
+                  fontSize: "1.25rem",
+                  fontWeight: "600",
+                  margin: "0 0 1.5rem 0",
+                }}
+              >
+                {t.contactMe}
+              </h3>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "1rem",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "1rem",
+                    padding: "1rem",
+                    background: "rgba(0, 188, 212, 0.1)",
+                    borderRadius: "8px",
+                  }}
+                >
+                  <span style={{ fontSize: "1.5rem" }}>📧</span>
+                  <div>
+                    <p style={{ fontWeight: "500", margin: 0 }}>Email</p>
+                    <a
+                      href="mailto:angelring127@gmail.com"
+                      style={{ color: "#00bcd4", textDecoration: "none" }}
+                    >
+                      angelring127@gmail.com
+                    </a>
+                  </div>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "1rem",
+                    padding: "1rem",
+                    background: "#f8f9fa",
+                    borderRadius: "8px",
+                  }}
+                >
+                  <span style={{ fontSize: "1.5rem" }}>📂</span>
+                  <div>
+                    <p style={{ fontWeight: "500", margin: 0 }}>GitHub</p>
+                    <a
+                      href="https://github.com/angelring127"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: "#666", textDecoration: "none" }}
+                    >
+                      github.com/angelring127
+                    </a>
+                  </div>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "1rem",
+                    padding: "1rem",
+                    background: "#e3f2fd",
+                    borderRadius: "8px",
+                  }}
+                >
+                  <span style={{ fontSize: "1.5rem" }}>💼</span>
+                  <div>
+                    <p style={{ fontWeight: "500", margin: 0 }}>LinkedIn</p>
+                    <a
+                      href="https://www.linkedin.com/in/naru1227"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: "#1976d2", textDecoration: "none" }}
+                    >
+                      linkedin.com/in/naru1227
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <button
+                onClick={() => setIsContactOpen(false)}
+                style={{
+                  width: "100%",
+                  padding: "0.75rem",
+                  background: "#00bcd4",
+                  color: "white",
+                  border: "none",
+                  borderRadius: "8px",
+                  fontSize: "0.875rem",
+                  fontWeight: "500",
+                  cursor: "pointer",
+                  marginTop: "1.5rem",
+                  transition: "background 0.2s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "#00acc1";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "#00bcd4";
+                }}
+              >
+                {t.contactMe}
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );

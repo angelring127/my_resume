@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 
 type Language = "ko" | "en" | "ja";
 
@@ -39,6 +40,7 @@ export default function Navigation({
   currentLanguage = "ko",
   onLanguageChange,
 }: NavigationProps) {
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
   const t = translations[currentLanguage];
 
   const handleLanguageChange = (language: Language) => {
@@ -206,7 +208,14 @@ export default function Navigation({
       </div>
 
       {/* Right Side */}
-      <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "1rem",
+          position: "relative",
+        }}
+      >
         {/* Print Button (Resume 페이지에서만 표시) */}
         {currentPage === "resume" && (
           <button
@@ -347,7 +356,8 @@ export default function Navigation({
         </div>
 
         {/* Profile Avatar */}
-        <div
+        <button
+          onClick={() => setIsProfileOpen((prev) => !prev)}
           style={{
             width: "32px",
             height: "32px",
@@ -359,10 +369,136 @@ export default function Navigation({
             color: "white",
             fontSize: "0.875rem",
             fontWeight: "600",
+            border: "none",
+            cursor: "pointer",
           }}
+          aria-haspopup="menu"
+          aria-expanded={isProfileOpen}
+          aria-label="Account menu"
+          title="Account"
         >
           S
-        </div>
+        </button>
+        {isProfileOpen && (
+          <div
+            style={{
+              position: "absolute",
+              top: "48px",
+              right: 0,
+              width: "260px",
+              background: "white",
+              border: "1px solid #e9ecef",
+              borderRadius: "10px",
+              boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
+              padding: "12px",
+              zIndex: 1200,
+            }}
+            role="menu"
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+                marginBottom: "10px",
+              }}
+            >
+              <div
+                style={{
+                  width: "36px",
+                  height: "36px",
+                  borderRadius: "50%",
+                  background: "linear-gradient(135deg, #00bcd4, #0097a7)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "white",
+                  fontWeight: 700,
+                }}
+              >
+                S
+              </div>
+              <div style={{ minWidth: 0 }}>
+                <div
+                  style={{
+                    fontSize: "0.95rem",
+                    fontWeight: 600,
+                    color: "#333",
+                    lineHeight: 1.1,
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {t.name}
+                </div>
+                <div style={{ fontSize: "0.8rem", color: "#666" }}>
+                  {t.role}
+                </div>
+              </div>
+            </div>
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "6px" }}
+            >
+              <a
+                href="mailto:angelring127@gmail.com"
+                style={{
+                  color: "#00bcd4",
+                  fontSize: "0.85rem",
+                  textDecoration: "none",
+                }}
+              >
+                📧 angelring127@gmail.com
+              </a>
+              <a
+                href="https://github.com/angelring127"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  color: "#333",
+                  fontSize: "0.85rem",
+                  textDecoration: "none",
+                }}
+              >
+                📂 github.com/angelring127
+              </a>
+              <a
+                href="https://www.linkedin.com/in/naru1227"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  color: "#1976d2",
+                  fontSize: "0.85rem",
+                  textDecoration: "none",
+                }}
+              >
+                💼 linkedin.com/in/naru1227
+              </a>
+            </div>
+            <div
+              style={{
+                marginTop: "10px",
+                display: "flex",
+                justifyContent: "flex-end",
+              }}
+            >
+              <button
+                onClick={() => setIsProfileOpen(false)}
+                style={{
+                  background: "#f1f5f9",
+                  border: "1px solid #e2e8f0",
+                  color: "#334155",
+                  borderRadius: "6px",
+                  padding: "6px 10px",
+                  fontSize: "0.8rem",
+                  cursor: "pointer",
+                }}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </header>
   );

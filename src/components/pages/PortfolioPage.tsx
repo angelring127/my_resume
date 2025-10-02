@@ -34,7 +34,7 @@ const translations = {
     sendMessage: "메시지 보내기",
     // 경력 데이터
     freelanceVancouver: "프리랜서",
-    freelanceSeoul: "프리랜서",
+    freelanceSeoul: "maebe Co., Ltd (remote)",
     maebeCo: "Maebe Co., Ltd",
     vancouverCanada: "밴쿠버, 캐나다",
     seoulKorea: "서울, 한국",
@@ -191,7 +191,7 @@ const translations = {
     sendMessage: "Send Message",
     // 경력 데이터
     freelanceVancouver: "Freelance",
-    freelanceSeoul: "Freelance",
+    freelanceSeoul: "maebe Co., Ltd (remote)",
     maebeCo: "Maebe Co., Ltd",
     vancouverCanada: "Vancouver, Canada",
     seoulKorea: "Seoul, South Korea",
@@ -356,7 +356,7 @@ const translations = {
     sendMessage: "メッセージを送る",
     // 経歴データ
     freelanceVancouver: "フリーランス",
-    freelanceSeoul: "フリーランス",
+    freelanceSeoul: "株式会社 まえびー (remote)",
     maebeCo: "Maebe Co., Ltd",
     vancouverCanada: "バンクーバー、カナダ",
     seoulKorea: "ソウル、韓国",
@@ -563,7 +563,7 @@ export default function PortfolioPage() {
       featured: true,
       imageUrl: "/projects/try_farming.jpg",
       startDate: "2025.02",
-      endDate: t.present,
+      endDate: "2025.02",
       systemDescription: t.harvestKingdomSystemDesc,
       experienceDescription: t.harvestKingdomExperienceDesc,
     },
@@ -775,7 +775,7 @@ export default function PortfolioPage() {
       position: "Full Stack Engineer",
       company: t.freelanceVancouver,
       location: t.vancouverCanada,
-      years: `2022 - ${t.present}`,
+      years: `2024 - ${t.present}`,
       tasks: [
         "Developing projects using Laravel, Next.js, Docker, and Python",
         "Leading project management and problem-solving initiatives",
@@ -786,7 +786,7 @@ export default function PortfolioPage() {
       position: "Fullstack Developer",
       company: t.freelanceSeoul,
       location: t.seoulKorea,
-      years: "2020 - 2022",
+      years: "2020 - 2024",
       tasks: [
         "Building web applications with React, Laravel, and Python",
         "Designing system architecture and full-stack development",

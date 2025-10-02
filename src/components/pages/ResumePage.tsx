@@ -22,7 +22,7 @@ const translations = {
     technicalSkills: "기술 스택",
     professionalSummary: "전문 요약",
     summaryText:
-      "6년 이상의 경험을 가진 열정적인 풀스택 개발자로, 강력하고 확장 가능한 웹 애플리케이션 구축을 통해 원활한 사용자 경험을 제공합니다. 효율적인 클라우드 아키텍처 설계와 유지보수 가능한 코드베이스 작성에 전문성을 보유하고 있습니다. 협업 환경과 원격 근무 환경에서 뛰어난 성과를 내며, 혁신적인 아이디어로 다양한 기술과 국제 시장에서 성과를 창출합니다.",
+      "7년 이상의 경험을 가진 열정적인 풀스택 개발자로, 강력하고 확장 가능한 웹 애플리케이션 구축을 통해 원활한 사용자 경험을 제공합니다. 효율적인 클라우드 아키텍처 설계와 유지보수 가능한 코드베이스 작성에 전문성을 보유하고 있습니다. 협업 환경과 원격 근무 환경에서 뛰어난 성과를 내며, 혁신적인 아이디어로 다양한 기술과 국제 시장에서 성과를 창출합니다.",
     frontend: "프론트엔드",
     frontendSkills:
       "React.js • Next.js • TypeScript • JavaScript • Flutter • Modern UI/UX",
@@ -56,7 +56,7 @@ const translations = {
     technicalSkills: "Technical Skills",
     professionalSummary: "Professional Summary",
     summaryText:
-      "A passionate full-stack engineer with 6+ years of experience building robust and scalable web applications that deliver seamless user experiences. Proven expertise in designing efficient cloud architectures and creating maintainable codebases. Thrives in collaborative environments and remote work settings, bringing innovative ideas to life across diverse technologies and international markets.",
+      "A passionate full-stack engineer with 7+ years of experience building robust and scalable web applications that deliver seamless user experiences. Proven expertise in designing efficient cloud architectures and creating maintainable codebases. Thrives in collaborative environments and remote work settings, bringing innovative ideas to life across diverse technologies and international markets.",
     frontend: "Frontend",
     frontendSkills:
       "React.js • Next.js • TypeScript • JavaScript • Flutter • Modern UI/UX",
@@ -122,7 +122,9 @@ export default function ResumePage() {
   // 초기 언어 로드
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const savedLanguage = localStorage.getItem("preferredLanguage") as Language | null;
+      const savedLanguage = localStorage.getItem(
+        "preferredLanguage"
+      ) as Language | null;
       if (savedLanguage && ["ko", "en", "ja"].includes(savedLanguage)) {
         setCurrentLanguage(savedLanguage);
       }
@@ -190,7 +192,9 @@ export default function ResumePage() {
               minHeight: isMobile ? "auto" : "297mm", // A4 height
               maxWidth: "100%",
               background: "white",
-              boxShadow: isMobile ? "0 4px 12px rgba(0, 0, 0, 0.15)" : "0 10px 30px rgba(0, 0, 0, 0.3)",
+              boxShadow: isMobile
+                ? "0 4px 12px rgba(0, 0, 0, 0.15)"
+                : "0 10px 30px rgba(0, 0, 0, 0.3)",
               borderRadius: isMobile ? "0" : "8px",
               overflow: "hidden",
               position: "relative",
@@ -904,11 +908,13 @@ export default function ResumePage() {
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = "translateY(-70px) scale(1.06)";
-              e.currentTarget.style.boxShadow = "0 6px 25px rgba(102, 126, 234, 0.6)";
+              e.currentTarget.style.boxShadow =
+                "0 6px 25px rgba(102, 126, 234, 0.6)";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = "translateY(-70px) scale(1)";
-              e.currentTarget.style.boxShadow = "0 4px 20px rgba(102, 126, 234, 0.4)";
+              e.currentTarget.style.boxShadow =
+                "0 4px 20px rgba(102, 126, 234, 0.4)";
             }}
             title={t.printResume}
             aria-label={t.printResume}

@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "SANG HO YOUN - Full Stack Developer",
   description:
-    "Full Stack Developer with 6+ years experience in React, Next.js, Laravel, Python. Based in Vancouver, Canada.",
+    "Full Stack Developer with 7+ years experience in React, Next.js, Laravel, Python. Based in Vancouver, Canada.",
   keywords:
     "Full Stack Developer, React, Next.js, Laravel, Python, Vancouver, Remote Work",
   authors: [{ name: "SANG HO YOUN" }],
@@ -30,14 +30,14 @@ export const metadata: Metadata = {
     url: "https://my-resume-three-psi.vercel.app",
     title: "SANG HO YOUN - Full Stack Developer",
     description:
-      "Full Stack Developer with 6+ years experience in React, Next.js, Laravel, Python. Based in Vancouver, Canada.",
+      "Full Stack Developer with 7+ years experience in React, Next.js, Laravel, Python. Based in Vancouver, Canada.",
     siteName: "SANG HO YOUN Portfolio",
   },
   twitter: {
     card: "summary_large_image",
     title: "SANG HO YOUN - Full Stack Developer",
     description:
-      "Full Stack Developer with 6+ years experience in React, Next.js, Laravel, Python. Based in Vancouver, Canada.",
+      "Full Stack Developer with 7+ years experience in React, Next.js, Laravel, Python. Based in Vancouver, Canada.",
   },
   robots: {
     index: true,
